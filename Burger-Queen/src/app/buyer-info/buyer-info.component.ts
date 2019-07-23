@@ -10,9 +10,11 @@ export class BuyerInfoComponent implements OnInit {
   title:string = 'Burger Queen';
   buyerName:string = '';
   hide:boolean = true;
-
+  arrProduct = []; 
+  
   constructor(private data: DataService) { }
- arrProduct = [];   
+  
+
   takeOrder() {
     console.log(this.buyerName);
     this.data.changeBuyerName(this.buyerName)
@@ -22,6 +24,5 @@ export class BuyerInfoComponent implements OnInit {
   ngOnInit() {
     this.data.currentBuyerName.subscribe(buyerName => this.buyerName = buyerName)
   }
-  
 
 }

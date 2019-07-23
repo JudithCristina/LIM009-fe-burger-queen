@@ -21,24 +21,19 @@ export class BreakfastMenuComponent implements OnInit {
           name: this.itemsBreakfastMenu[i].name,
           price: this.itemsBreakfastMenu[i].price,
           quantity: 1,
-          priceTotal:this.itemsBreakfastMenu[i].price}
+          priceTotal: this.itemsBreakfastMenu[i].price}
       }
     }
     this.orderService.addProduct(this.productAdded)  
-
   }
 
   constructor(private menuService: MenuService, private orderService: OrdersService) {
     this.menuService.getItemsBreakfast().subscribe(itemsB => {
       this.itemsBreakfastMenu = itemsB
-    })
-    
+    })    
   }
 
-  
 
-  ngOnInit() {
-  
-   }
+  ngOnInit() { }
 
 }

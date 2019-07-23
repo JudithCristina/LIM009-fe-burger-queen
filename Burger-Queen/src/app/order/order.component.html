@@ -14,13 +14,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr   *ngFor="let itemOrder of finalOrder, let i = index" >
-      <th   scope="row">{{i+1}}</th>
-      <td  > {{itemOrder.name}}</td>
-      <td  >{{itemOrder.quantity}}</td>
-      <td >{{itemOrder.price}}</td>
-      <td  >{{itemOrder.priceTotal}}</td>
-      <td  ><button   (click)="eliminar(itemOrder.id) "  class="delete-btn">Eliminar</button></td>
+    <tr *ngFor="let itemOrder of finalOrder, let i = index" >
+      <th scope="row">{{i+1}}</th>
+      <td>{{itemOrder.name}}</td>
+      <td>{{itemOrder.quantity}}</td>
+      <td>{{itemOrder.price}}</td>
+      <td>{{itemOrder.priceTotal}}</td>
+      <td><button (click)="eliminar(itemOrder.id)" class="delete-btn">Eliminar</button></td>
     </tr>
   </tbody> 
   <tfoot>
