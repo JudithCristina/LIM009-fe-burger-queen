@@ -61,6 +61,16 @@ export class MenuService {
       });
     }));
   }
+
+  sendOrderToKitchen(objArray:object) {
+    const orderCollection = this.angularfs.collection('orders');
+
+    // const id = this.angularfs.createId();
+    // console.log('id', id)
+
+    // orderCollection.doc(id).add(objArray)
+    orderCollection.add(objArray)
+  }
 }
 
 

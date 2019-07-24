@@ -9,7 +9,7 @@
       <th scope="col">Producto</th>
       <th scope="col">Cantidad</th>
       <th scope="col">Precio Unitario</th>
-      <th scope="col">Precio Total</th>
+      <th scope="col">Subtotal</th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -29,10 +29,11 @@
       <th></th>
       <th></th>
       <th></th>
-      <th>{{ totalProducto | currency }}</th>
+      <th>{{totalProducto | currency}}</th>
     </tr>
   </tfoot>
 </table>
+<button class="btn btn-primary" (click)="sendOrder()">Enviar orden</button>
 
 
 <!-- <div class="list-group">

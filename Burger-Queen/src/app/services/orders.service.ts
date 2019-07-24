@@ -39,20 +39,20 @@ export class OrdersService {
           this.arrProduct.push(product);
       }; 
     };
-    // console.log(this.arrProduct);
+    console.log('arrproduct', this.arrProduct);
     this.ordersSource.next(this.arrProduct);
     this.totalDePedidos();
 
   }
-  totalDePedidos(){
+
+  totalDePedidos() {
     this.arrCalculate = this.arrProduct.reduce((acum, obj) => {
      return acum + obj.priceTotal;
     }, 0);
        this.totalData.next(this.arrCalculate);
   }
 
-
-  eliminarProducto(id){
+  eliminarProducto(id) {
     this.arrProduct = this.arrProduct.filter(objArrOrden => {
       return objArrOrden.id !== id;
     });

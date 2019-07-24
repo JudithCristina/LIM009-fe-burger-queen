@@ -24,7 +24,7 @@ export class BreakfastMenuComponent implements OnInit {
           priceTotal: this.itemsBreakfastMenu[i].price}
       }
     }
-    this.orderService.addProduct(this.productAdded)  
+    this.orderService.addProduct(this.productAdded)
   }
 
   constructor(private menuService: MenuService, private orderService: OrdersService) {

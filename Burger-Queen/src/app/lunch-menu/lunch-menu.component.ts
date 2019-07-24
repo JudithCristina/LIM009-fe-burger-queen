@@ -30,7 +30,7 @@ export class LunchMenuComponent implements OnInit {
           category: this.itemsLunchMenu[i]['category'],
           quantity: 1,
           priceTotal: this.itemsLunchMenu[i].price}
-      }  
+      }
     }
     this.orderService.addProduct(this.productAdded)
   }
