@@ -16,6 +16,7 @@ import { MenuComponent } from './menu/menu.component';
 import { BreakfastMenuComponent } from './breakfast-menu/breakfast-menu.component';
 import { LunchMenuComponent } from './lunch-menu/lunch-menu.component';
 import { OrderComponent } from './order/order.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { OrderComponent } from './order/order.component';
     MenuComponent,
     BreakfastMenuComponent,
     LunchMenuComponent,
-    OrderComponent
+    OrderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

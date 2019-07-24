@@ -1,3 +1,4 @@
+<div clas="col-6">
 <button data-toggle="collapse" data-target="#hamburguesas">Hamburguesas</button>
 <ul>
     <li id="hamburguesas" class="collapse list-group-item list-group-item-action" *ngFor="let itemL of hamburguesas"
@@ -21,3 +22,4 @@
     <li id="acompanamientos" class="collapse list-group-item list-group-item-action"
         *ngFor="let itemL of acompanamientos" (click)="addItemToMenuService(itemL.id)">{{itemL.name}}</li>
 </ul>
+</div>

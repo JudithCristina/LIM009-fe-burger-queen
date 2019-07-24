@@ -9,20 +9,28 @@ import { DataService } from '../data.service';
 export class BuyerInfoComponent implements OnInit {
   title:string = 'Burger Queen';
   buyerName:string = '';
-  hide:boolean = true;
-  arrProduct = []; 
+  showClientName:boolean = true;
+  arrProduct = [];
+  showMenu:boolean = false;
   
   constructor(private data: DataService) { }
   
 
-  takeOrder() {
-    console.log(this.buyerName);
-    this.data.changeBuyerName(this.buyerName)
-    this.hide = !this.hide;
-  }
+  // takeOrder() {
+    // console.log(this.buyerName);
+    // this.data.changeBuyerName(this.buyerName)
+    // this.hide = !this.hide;
+  // }
   
   ngOnInit() {
     this.data.currentBuyerName.subscribe(buyerName => this.buyerName = buyerName)
   }
+
+  openMenu() {
+    this.showMenu = true;
+    this.data.changeBuyerName(this.buyerName);
+    this.showClientName = false;
+  }
+  
 
 }

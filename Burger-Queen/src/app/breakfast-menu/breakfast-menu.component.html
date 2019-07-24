@@ -1,8 +1,18 @@
 <!-- <ul class="list-group">
   <li class="list-group-item" *ngFor="let itemBreakfast of itemsBreakfastMenu">{{itemBreakfast.name}} - Precio: {{itemBreakfast.price}}</li>
 </ul> -->
-
-<div class="list-group">
-  <li (click)="addItemToMenuService(itemBreakfast.id)" class="list-group-item list-group-item-action" *ngFor="let itemBreakfast of itemsBreakfastMenu">{{itemBreakfast.name}}</li>
+<div class="container">
+<div class="row">
+  <div class="col-6" *ngFor="let itemBreakfast of itemsBreakfastMenu">
+    <div (click)="addItemToMenuService(itemBreakfast.id)"  class="card-deck ">
+      <div class="card">
+        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{itemBreakfast.name}}</h5>
+          <p class="card-text">Precio: {{itemBreakfast.price | currency}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
+</div>

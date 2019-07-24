@@ -15,14 +15,20 @@ export class OrderComponent implements OnInit {
   show = true;
   totalProducto: number;
   buyerName:string;
+  fecha:any;
+  dataPedidos = [];
+  numeroDePedidos: number;
 
-  constructor(private dataOrder: OrdersService, private menuService: MenuService, private dataName: DataService) { }
+  constructor(private dataOrder: OrdersService, private menuService: MenuService, private dataName: DataService) {
+    this.registrarNumeroDeOrden()
+   }
   
   eliminar(id: any){
     this.dataOrder.eliminarProducto(id); // la funcion(ingresa el id)
   }
 
   ngOnInit() {  
+    this.fecha = new Date();
     this.dataOrder.currentOrders.subscribe(arrOrder => {
       // console.log('Orden lista', arrOrder);
       this.finalOrder = arrOrder;
@@ -37,11 +43,17 @@ export class OrderComponent implements OnInit {
     this.dataName.currentBuyerName.subscribe(buyerName => this.buyerName = buyerName)
   }
 
+  registrarNumeroDeOrden(){
+    this.menuService.getDataNumeroDePedidos().subscribe( dataPedidos => {
+     this.numeroDePedidos = dataPedidos.length + 1;
+     })
+   }
+
   sendOrder() {
     this.menuService.sendOrderToKitchen({
       clientName: this.buyerName,
       products: this.finalOrder,
-      time: new Date(),
+      time: this.fecha,
       status: 'Pendiente',
       total: this.totalProducto
     });

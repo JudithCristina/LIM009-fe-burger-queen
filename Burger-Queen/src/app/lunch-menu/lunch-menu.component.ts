@@ -26,9 +26,10 @@ export class LunchMenuComponent implements OnInit {
         this.productAdded = {
           id: itemLunchID,
           name: this.itemsLunchMenu[i].name,
-          price: this.itemsLunchMenu[i].price,
-          category: this.itemsLunchMenu[i]['category'],
+          typeOfBurger: '',
+          extras: '',
           quantity: 1,
+          price: this.itemsLunchMenu[i].price,
           priceTotal: this.itemsLunchMenu[i].price}
       }
     }

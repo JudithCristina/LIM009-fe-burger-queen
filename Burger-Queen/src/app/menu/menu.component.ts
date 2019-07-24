@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  showBreakfast: boolean = false;
+  showBreakfast: boolean = true;
   showLunch: boolean = false;
 
   constructor( ) { }

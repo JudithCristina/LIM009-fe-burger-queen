@@ -1,15 +1,19 @@
-<div class="container">
-  <button (click)="openBreakfastMenu()">Desayuno</button>
-  <button (click)="openLunchMenu()">Almuerzo y cena</button>
-  <br>
-</div>
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs" >
+      <li class="nav-item">
+        <a class="nav-link active" ng-class="active" (click)="openBreakfastMenu()">Desayuno</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="openLunchMenu()">Almuerzo y cena</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body" *ngIf='showBreakfast'>
+    <app-breakfast-menu></app-breakfast-menu>
+  </div>
 
-<div *ngIf='showBreakfast'>
-  <app-breakfast-menu></app-breakfast-menu>
+  <div  class="card-body" *ngIf='showLunch'>
+    <app-lunch-menu></app-lunch-menu>
+  </div>
 </div>
-
-<div *ngIf='showLunch'>
-  <app-lunch-menu></app-lunch-menu>
-</div>
-
-<app-order></app-order>

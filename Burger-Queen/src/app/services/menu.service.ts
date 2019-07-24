@@ -69,8 +69,14 @@ export class MenuService {
     // console.log('id', id)
 
     // orderCollection.doc(id).add(objArray)
-    orderCollection.add(objArray)
+    return orderCollection.add(objArray)
   }
+
+  getDataNumeroDePedidos(){
+    return this.angularfs.collection('orders').valueChanges();
+   }
+ 
 }
 
 
+ 

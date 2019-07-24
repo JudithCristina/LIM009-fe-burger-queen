@@ -1,8 +1,12 @@
-<div *ngIf="hide" style="text-align:center">
+<div *ngIf="showClientName" style="text-align:center">
   <h1>{{ title }}</h1>
   <h2>Nombre del cliente</h2>
   <input type="text" placeholder="Comprador" [(ngModel)]="buyerName"/>
-  <button routerLink='/take-order' (click)="takeOrder()" [disabled]="!buyerName">Hacer pedido</button>
+  <button (click)="openMenu()" [disabled]="!buyerName">Hacer pedido</button>
+</div>
+
+<div *ngIf='showMenu'>
+  <app-take-order></app-take-order>
 </div>
 
 <router-outlet></router-outlet>
