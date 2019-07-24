@@ -42,7 +42,8 @@ export class MenuService {
           arr.push({
             id: element.payload.doc.id,
             name: data.name,
-            price: data.price
+            price: data.price,
+            image: data.image
           })
         })
         return arr;
