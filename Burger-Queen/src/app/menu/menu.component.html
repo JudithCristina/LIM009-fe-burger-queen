@@ -2,7 +2,7 @@
   <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs" >
       <li class="nav-item">
-        <a class="nav-link active" ng-class="active" (click)="openBreakfastMenu()">Desayuno</a>
+        <a class="nav-link active" (click)="openBreakfastMenu()">Desayuno</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" (click)="openLunchMenu()">Almuerzo y cena</a>
@@ -12,7 +12,6 @@
   <div class="card-body" *ngIf='showBreakfast'>
     <app-breakfast-menu></app-breakfast-menu>
   </div>
-
   <div  class="card-body" *ngIf='showLunch'>
     <app-lunch-menu></app-lunch-menu>
   </div>

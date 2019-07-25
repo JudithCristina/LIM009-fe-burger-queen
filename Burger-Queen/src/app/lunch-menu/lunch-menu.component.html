@@ -1,25 +1,54 @@
+
 <div clas="col-6">
-<button data-toggle="collapse" data-target="#hamburguesas">Hamburguesas</button>
-<ul>
-    <li id="hamburguesas" class="collapse list-group-item list-group-item-action" *ngFor="let itemL of hamburguesas"
-        (click)="addItemToMenuService(itemL.id)">{{itemL.name}} - <button data-toggle="collapse"
-            data-target="#adicionales">Adicionales</button>
-        <ul>
-            <li id="adicionales" class="collapse list-group-item list-group-item-action"
-                *ngFor="let itemL of adicionales" (click)="addItemToMenuService(itemL.id)">{{itemL.name}}</li>
-        </ul>
-    </li>
-</ul>
-<button data-toggle="collapse" data-target="#bebidas">Bebidas</button>
-<ul>
-    <li id="bebidas" class="collapse list-group-item list-group-item-action" *ngFor="let itemL of bebidas"
-        (click)="addItemToMenuService(itemL.id)">{{itemL.name}}</li>
-</ul>
-
-
-<button data-toggle="collapse" data-target="#acompanamientos">Acompañamientos</button>
-<ul>
-    <li id="acompanamientos" class="collapse list-group-item list-group-item-action"
-        *ngFor="let itemL of acompanamientos" (click)="addItemToMenuService(itemL.id)">{{itemL.name}}</li>
-</ul>
+    <!-- HAMBURGUESAS -->
+    <button data-toggle="collapse" data-target="#hamburguesas" class="btn btn-dark btn-lg btn-lunch">Hamburguesas</button>
+    <div class="container">
+        <div class="row">
+            <div id="hamburguesas" class="col-6 collapse" *ngFor="let itemL of hamburguesas">
+                <div (click)="addItemToMenuService(itemL.id)"  class="card-deck ">
+                    <div class="card">
+                        <img class="card-img-top lunch-img" src="{{itemL.image}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{itemL.name}}</h5>
+                            <p class="card-text">Precio: {{itemL.price | currency}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- BEBIDAS -->
+    <button data-toggle="collapse" data-target="#bebidas" class="btn btn-dark btn-lg btn-lunch">Bebidas</button>
+    <div class="container">
+        <div class="row">
+            <div id="bebidas" class="col-6 collapse" *ngFor="let itemL of bebidas">
+                <div (click)="addItemToMenuService(itemL.id)"  class="card-deck ">
+                    <div class="card">
+                        <img class="card-img-top lunch-img" src="{{itemL.image}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{itemL.name}}</h5>
+                            <p class="card-text">Precio: {{itemL.price | currency}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ACOMPAÑAMIENTO -->
+    <button data-toggle="collapse" data-target="#acompanamientos" class="btn btn-dark btn-lg btn-lunch">Acompañamientos</button>
+    <div class="container">
+        <div class="row">
+            <div id="acompanamientos" class="col-6 collapse" *ngFor="let itemL of acompanamientos">
+                <div (click)="addItemToMenuService(itemL.id)"  class="card-deck ">
+                    <div class="card">
+                        <img class="card-img-top lunch-img" src="{{itemL.image}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{itemL.name}}</h5>
+                            <p class="card-text">Precio: {{itemL.price | currency}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

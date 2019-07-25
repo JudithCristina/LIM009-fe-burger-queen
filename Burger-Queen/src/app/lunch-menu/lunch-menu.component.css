@@ -1,0 +1,12 @@
+.lunch-img, .card {
+  cursor: pointer;
+}
+
+.btn-lunch {
+  font-weight: bold;
+  margin-bottom: 3%;
+}
+
+.row {
+  margin-bottom: 3%;
+}

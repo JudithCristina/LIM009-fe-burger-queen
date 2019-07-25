@@ -26,6 +26,7 @@ export class OrderComponent implements OnInit {
   eliminar(id: any){
     this.dataOrder.eliminarProducto(id); // la funcion(ingresa el id)
   }
+  
 
   ngOnInit() {  
     this.fecha = new Date();
@@ -57,8 +58,11 @@ export class OrderComponent implements OnInit {
       status: 'Pendiente',
       total: this.totalProducto
     });
-  }
 
-  
+    alert("Orden enviada"),
+    this.finalOrder=[];
+    this.buyerName = "";
+    this.totalProducto=0
+    // this.menuService.reset()
+  } 
 }
-

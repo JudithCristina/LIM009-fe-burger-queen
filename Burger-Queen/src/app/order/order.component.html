@@ -1,15 +1,17 @@
 <!-- <li *ngFor= "let orderItem of ORDER">{{orderItem}}</li> -->
+
 <div clas="col-6">
-  <div class="form-group margin-top">
-    <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning" id="inputGroup-sizing-sm">FECHA :
+  <div class="form-group margin-top font-white">
+    <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-primary" id="inputGroup-sizing-sm">FECHA :
       {{ fecha | date: 'short'}}</div>
-    <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning" id="inputGroup-sizing-sm">N° DE
-      ATENCIÓN: 00{{numeroDePedidos}}</div>
-    <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning" id="inputGroup-sizing-sm">N° DE
-      Cliente:<input type="text" placeholder="Comprador" [(ngModel)]="buyerName"/></div>
+    <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-primary" id="inputGroup-sizing-sm">ORDEN N°: 00{{numeroDePedidos}}</div>
+    <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-primary" id="inputGroup-sizing-sm">
+      Cliente: <input type="text" placeholder="nombre del cliente" [(ngModel)]="buyerName"/>
+      <!-- <strong>{{ buyerName }}</strong> -->
+    </div>
   </div>
 
-  <table class="table">
+  <table class="table table-striped">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -24,10 +26,10 @@
       <tr *ngFor="let itemOrder of finalOrder, let i = index">
         <th scope="row">{{i+1}}</th>
         <td>{{itemOrder.name}}</td>
-        <td>{{itemOrder.quantity}}</td>
+        <td><input type="number" [ngModel]="itemOrder.quantity" min="1" max="100"  #nuevaCantidad (click)="cantPedido(lista,nuevaCantidad.value)" /></td>
         <td>{{itemOrder.price}}</td>
         <td>{{itemOrder.priceTotal}}</td>
-        <td><img (click)="eliminar(itemOrder.id)" class="delete-btn" src='../../assets/eliminar.png'/></td>
+        <td><img (click)="eliminar(itemOrder.id)" class="delete-btn" src='../../assets/delete-btn.png'/></td>
       </tr>
     </tbody>
     <tfoot>
@@ -40,9 +42,5 @@
       </tr>
     </tfoot>
   </table>
-  <button class="btn btn-primary" (click)="sendOrder()">Enviar orden</button>
 </div>
-
-<!-- <div class="list-group">
-  <li class="list-group-item list-group-item-action" *ngFor="let itemOrder of finalOrder">{{itemOrder.name}} - {{itemOrder.quantity}}</li>
-</div> -->
+<button   class="btn btn-success col align-self-end font-weight-bold font-white" (click)="sendOrder()">Enviar orden</button>

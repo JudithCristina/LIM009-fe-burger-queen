@@ -20,7 +20,6 @@ export class LunchMenuComponent implements OnInit {
   productAdded:object;
 
   addItemToMenuService(itemLunchID) {
-    console.log('itemlunchid', itemLunchID)
     for (let i = 0; i < this.itemsLunchMenu.length; i++) {
       if (this.itemsLunchMenu[i].id === itemLunchID) {
         this.productAdded = {

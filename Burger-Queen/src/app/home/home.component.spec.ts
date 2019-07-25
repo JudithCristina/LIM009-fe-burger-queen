@@ -19,7 +19,13 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it(`should have as title 'Burger Queen'`, () => {
+    const fixture = TestBed.createComponent(HomeComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('Burger Queen');
   });
+
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
 });
