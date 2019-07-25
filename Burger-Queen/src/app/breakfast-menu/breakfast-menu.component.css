@@ -1,3 +1,8 @@
-.breakfast-img{
+.breakfast-img {
     height: 150px;
-}
+    cursor: pointer;
+  }
+  
+  .card {
+    cursor: pointer;
+  }

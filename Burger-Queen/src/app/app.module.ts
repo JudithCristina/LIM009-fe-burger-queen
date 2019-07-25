@@ -10,7 +10,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BuyerInfoComponent } from './buyer-info/buyer-info.component';
 import { TakeOrderComponent } from './take-order/take-order.component';
 import { MenuComponent } from './menu/menu.component';
 import { BreakfastMenuComponent } from './breakfast-menu/breakfast-menu.component';
@@ -21,7 +20,6 @@ import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
-    BuyerInfoComponent,
     TakeOrderComponent,
     MenuComponent,
     BreakfastMenuComponent,
