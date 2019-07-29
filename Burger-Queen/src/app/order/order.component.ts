@@ -52,7 +52,6 @@ export class OrderComponent implements OnInit {
   }
 
   sendOrder() {
-
     this.menuService.sendOrderToKitchen({
       clientName: this.buyerName,
       products: this.finalOrder,
@@ -60,14 +59,18 @@ export class OrderComponent implements OnInit {
       status: 'Pendiente',
       total: this.totalProducto
     }),
-
-      alert("orden enviada")
+    this.finalOrder=this.finalOrder.filter(ele=>{
+      return ele.name==="xxx"
+    })
+    this.buyerName="";
+    this.totalProducto=0
+    alert("orden enviada")
     // this.menuService.reset()
-}
+  }
 
 
-newOrder(){
-  window.location.reload()
-}
+  newOrder() {
+    window.location.reload()
+  }
 }
 

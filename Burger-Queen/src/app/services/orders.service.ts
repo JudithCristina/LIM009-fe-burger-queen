@@ -45,7 +45,7 @@ export class OrdersService {
 
   }
 
-  
+
 
   totalDePedidos() {
     this.arrCalculate = this.arrProduct.reduce((acum, obj) => {
@@ -54,22 +54,23 @@ export class OrdersService {
     this.totalData.next(this.arrCalculate);
   }
 
-addTypeHamburguers(type:any){
-  for (let i = 0; i < this.arrProduct.length; i++) {
-    this.arrProduct[i].typeOfBurguer=type
-}
-this.ordersSource.next(this.arrProduct)
-}
+  addTypeHamburguers(type: any) {
+    for (let i = 0; i < this.arrProduct.length; i++) {
+      this.arrProduct[i].typeOfBurguer = type
+    }
+    this.ordersSource.next(this.arrProduct)
+  }
   eliminarProducto(id) {
+    for (let i = 0; i < this.arrProduct.length; i++) {
+      if (this.arrProduct[i].id === id) {
+        this.arrProduct[i].quantity = this.arrProduct[i].quantity - 1;
+        this.arrProduct[i].priceTotal = this.arrProduct[i].quantity * this.arrProduct[i].price
+      }
+    }
+
     this.arrProduct = this.arrProduct.filter(objArrOrden => {
-      if (objArrOrden.id === id) {
-        objArrOrden.quantity = objArrOrden.quantity - 1;
-        objArrOrden.priceTotal = objArrOrden.quantity * objArrOrden.price
-        if (objArrOrden.quantity === 0) {
-          }
-        }
-        return this.arrProduct
-      })
+      return objArrOrden.quantity !== 0
+    })
 
     this.ordersSource.next(this.arrProduct);
     this.totalDePedidos()
