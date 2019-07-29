@@ -1,15 +1,38 @@
-.home-container {
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  justify-content: center;
-  padding-top: 20%;
-  text-align: center;
-}
 
+.logo{
+  width: 30%;
+  height: 20%;
+  display:block;
+  margin:auto;
+}
+.content{
+  position: relative
+}
 .btn-home-container {
   display: flex;
   flex-direction: row;
   justify-items: center;
   justify-content: space-evenly;
+  
 }
+.btn{
+  color: white;
+  font-size: 24px;
+  width: 200px;
+  height: 60px;
+}
+
+.home-container{
+    background-image: url(../../assets/fondoHome.jpg);
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}
+.overlay-itro{
+  background-color: rgba(0, 0, 0, 0.527);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+

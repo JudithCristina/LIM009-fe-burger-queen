@@ -5,8 +5,15 @@
 .btn-lunch {
   font-weight: bold;
   margin-bottom: 3%;
+  width: 250px;
+  height: 50px;
 }
 
 .row {
   margin-bottom: 3%;
+}
+
+label {
+  padding-left:0 !important;
+  margin-left:0 !important;
 }

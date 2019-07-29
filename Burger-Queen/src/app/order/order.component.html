@@ -1,11 +1,12 @@
 <!-- <li *ngFor= "let orderItem of ORDER">{{orderItem}}</li> -->
 
 <div clas="col-6">
+    <button   class="btn btn-success col align-self-end font-weight-bold" (click)="newOrder()">Realizar Nueva Orden</button><br>
   <div class="form-group margin-top font-white">
-    <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-primary" id="inputGroup-sizing-sm">FECHA :
+    <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning" id="inputGroup-sizing-sm">FECHA :
       {{ fecha | date: 'short'}}</div>
-    <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-primary" id="inputGroup-sizing-sm">ORDEN N°: 00{{numeroDePedidos}}</div>
-    <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-primary" id="inputGroup-sizing-sm">
+    <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning" id="inputGroup-sizing-sm">ORDEN N°: 00{{numeroDePedidos}}</div>
+    <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning" id="inputGroup-sizing-sm">
       Cliente: <input type="text" placeholder="nombre del cliente" [(ngModel)]="buyerName"/>
       <!-- <strong>{{ buyerName }}</strong> -->
     </div>
@@ -26,7 +27,7 @@
       <tr *ngFor="let itemOrder of finalOrder, let i = index">
         <th scope="row">{{i+1}}</th>
         <td>{{itemOrder.name}}</td>
-        <td><input type="number" [ngModel]="itemOrder.quantity" min="1" max="100"  #nuevaCantidad (click)="cantPedido(lista,nuevaCantidad.value)" /></td>
+        <td>{{itemOrder.quantity}}</td>
         <td>{{itemOrder.price}}</td>
         <td>{{itemOrder.priceTotal}}</td>
         <td><img (click)="eliminar(itemOrder.id)" class="delete-btn" src='../../assets/delete-btn.png'/></td>
@@ -43,4 +44,5 @@
     </tfoot>
   </table>
 </div>
-<button   class="btn btn-success col align-self-end font-weight-bold font-white" (click)="sendOrder()">Enviar orden</button>
+<button   class="btn btn-success col align-self-end font-weight-bold font-white" (click)="sendOrder()"  [disabled]="!buyerName">Enviar orden</button>
+<br><br><br><br>

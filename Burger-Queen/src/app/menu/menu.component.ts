@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  showActiveBreakfast: boolean =true;
+  showActiveLunch:boolean = false
   showBreakfast: boolean = true;
   showLunch: boolean = false;
+  showItem:boolean = true
 
   constructor( ) { }
 
@@ -18,11 +21,15 @@ export class MenuComponent implements OnInit {
   openBreakfastMenu() {
     this.showBreakfast = true;
     this.showLunch = false;
+    this.showActiveBreakfast = true
+    this.showActiveLunch = false
   }
 
   openLunchMenu() {
     this.showLunch = true;
     this.showBreakfast = false;
+    this.showActiveLunch = true
+    this.showActiveBreakfast = false
   }
 
 }

@@ -9,26 +9,26 @@ import { DataService } from '../data.service';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-  finalOrder:any;
-  emptyArray:any;
-  totalOrder:any;
+  finalOrder: any;
+  emptyArray: any;
+  totalOrder: any;
   show = true;
   totalProducto: number;
-  buyerName:string;
-  fecha:any;
+  buyerName: string;
+  fecha: any;
   dataPedidos = [];
   numeroDePedidos: number;
 
   constructor(private dataOrder: OrdersService, private menuService: MenuService, private dataName: DataService) {
     this.registrarNumeroDeOrden()
-   }
-  
-  eliminar(id: any){
+  }
+
+  eliminar(id: any) {
     this.dataOrder.eliminarProducto(id); // la funcion(ingresa el id)
   }
-  
 
-  ngOnInit() {  
+
+  ngOnInit() {
     this.fecha = new Date();
     this.dataOrder.currentOrders.subscribe(arrOrder => {
       // console.log('Orden lista', arrOrder);
@@ -36,7 +36,7 @@ export class OrderComponent implements OnInit {
       // console.log('finalOrder', this.finalOrder);
     })
 
-    this.dataOrder.totalPedidos.subscribe((total:number) => {
+    this.dataOrder.totalPedidos.subscribe((total: number) => {
       this.totalProducto = total;
       // console.log('totalProducto', this.totalProducto);
     }) // TRABAJANDO CON EL PRECIO TOTAL
@@ -44,25 +44,30 @@ export class OrderComponent implements OnInit {
     this.dataName.currentBuyerName.subscribe(buyerName => this.buyerName = buyerName)
   }
 
-  registrarNumeroDeOrden(){
-    this.menuService.getDataNumeroDePedidos().subscribe( dataPedidos => {
-     this.numeroDePedidos = dataPedidos.length + 1;
-     })
-   }
+
+  registrarNumeroDeOrden() {
+    this.menuService.getDataNumeroDePedidos().subscribe(dataPedidos => {
+      this.numeroDePedidos = dataPedidos.length + 1;
+    })
+  }
 
   sendOrder() {
+
     this.menuService.sendOrderToKitchen({
       clientName: this.buyerName,
       products: this.finalOrder,
       time: this.fecha,
       status: 'Pendiente',
       total: this.totalProducto
-    });
+    }),
 
-    alert("Orden enviada"),
-    this.finalOrder=[];
-    this.buyerName = "";
-    this.totalProducto=0
+      alert("orden enviada")
     // this.menuService.reset()
-  } 
 }
+
+
+newOrder(){
+  window.location.reload()
+}
+}
+

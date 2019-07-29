@@ -10,7 +10,8 @@ import { OrdersService } from '../services/orders.service';
 })
 export class LunchMenuComponent implements OnInit {
 
-  hamburguesas: Item[];
+  hamburguesasS: Item[];
+  hamburguesasD: Item[];
   bebidas: Item[];
   acompanamientos: Item[];
   adicionales: Item[];
@@ -37,7 +38,8 @@ export class LunchMenuComponent implements OnInit {
 
   constructor(private menuService: MenuService, private orderService: OrdersService)  { 
     this.menuService.getItemsLunch().subscribe(itemsL => {
-      this.hamburguesas = itemsL.filter((ele:any) => ele.category ==='Hamburguesas' )
+      this.hamburguesasS = itemsL.filter((ele:any) => ele.subcategory ==='Hamburguesas simples' )
+      this.hamburguesasD = itemsL.filter((ele:any) => ele.subcategory ==='Hamburguesas dobles' )
       this.adicionales = itemsL.filter((ele:any) => ele.category ==='Adicionales' )
       this.bebidas = itemsL.filter((ele:any) => ele.category ==='Bebidas' )
       this.acompanamientos = itemsL.filter((ele:any) => ele.category ==='Acompañamientos' )
