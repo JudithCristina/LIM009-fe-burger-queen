@@ -64,9 +64,9 @@ export class OrdersService {
     }
     this.ordersSource.next(this.arrProduct)
   }
-  eliminarProducto(id) {
+  eliminarProducto(index) {
     for (let i = 0; i < this.arrProduct.length; i++) {
-      if (this.arrProduct[i].id === id) {
+      if (i === index) {
         this.arrProduct[i].quantity = this.arrProduct[i].quantity - 1;
         this.arrProduct[i].priceTotal = this.arrProduct[i].quantity * this.arrProduct[i].price
       }

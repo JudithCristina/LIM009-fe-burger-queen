@@ -18,13 +18,12 @@ export class OrderComponent implements OnInit {
   fecha: any;
   dataPedidos = [];
   numeroDePedidos: number;
-
   constructor(private dataOrder: OrdersService, private menuService: MenuService, private dataName: DataService) {
     this.registrarNumeroDeOrden()
   }
 
-  eliminar(id: any) {
-    this.dataOrder.eliminarProducto(id); // la funcion(ingresa el id)
+  eliminar(index:any) {
+    this.dataOrder.eliminarProducto(index); // la funcion(ingresa el id)
   }
 
 

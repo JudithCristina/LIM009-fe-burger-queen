@@ -19,7 +19,11 @@ export class LunchMenuComponent implements OnInit {
   itemsLunchMenu: Item[];
   productAdded:object;
   adicionalesHambur:string
+  checked1:boolean=false
 
+  do(){
+    this.checked1=!this.checked1
+  }
   addItemToMenuService(itemLunchID,adicional) {
     for (let i = 0; i < this.itemsLunchMenu.length; i++) {
       if (this.itemsLunchMenu[i].id === itemLunchID) {

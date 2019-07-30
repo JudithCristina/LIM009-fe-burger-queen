@@ -21,7 +21,7 @@
                                     <div class="form-control">
                                         <label class="radio-inline">
                                             <input type="radio" value="con huevo" name="adicional-{{in}}"
-                                                [(ngModel)]="itemL.additional">huevo
+                                                [(ngModel)]="itemL.additional" ng-checked="checked1" ng-change="do()" >huevo
                                         </label>
                                         <label class="radio-inline">
                                             <input type="radio" value="con queso" name="adicional-{{in}}"
