@@ -17,17 +17,17 @@ export class LunchMenuComponent implements OnInit {
   adicionales: Item[];
 
   itemsLunchMenu: Item[];
-  itemLunch:string;
   productAdded:object;
+  adicionalesHambur:string
 
-  addItemToMenuService(itemLunchID) {
+  addItemToMenuService(itemLunchID,adicional) {
     for (let i = 0; i < this.itemsLunchMenu.length; i++) {
       if (this.itemsLunchMenu[i].id === itemLunchID) {
         this.productAdded = {
           id: itemLunchID,
           name: this.itemsLunchMenu[i].name,
           typeOfBurger: '',
-          extras: '',
+          additional: adicional,
           quantity: 1,
           price: this.itemsLunchMenu[i].price,
           priceTotal: this.itemsLunchMenu[i].price}

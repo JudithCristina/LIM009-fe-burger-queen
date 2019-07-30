@@ -26,18 +26,22 @@ export class OrdersService {
     } else {
       this.filteredArrProduct = this.arrProduct.filter(elem => {
         // console.log('elem', elem);
-        return elem.name !== product.name;
+        return (elem.name !== product.name  || ( elem.name === product.name && product.additional === "con huevo" ) || (elem.name === product.name && product.additional === "con queso"  ));
       });
       if (this.arrProduct.length > this.filteredArrProduct.length) {
         for (let i = 0; i < this.arrProduct.length; i++) {
           if (this.arrProduct[i].name === product.name) {
             this.arrProduct[i]['quantity'] = this.arrProduct[i]['quantity'] + 1;
             this.arrProduct[i].priceTotal = this.arrProduct[i]['quantity'] * this.arrProduct[i]['price'];
-          };
+          }
         };
       } else {
-        this.arrProduct.push(product);
-      };
+          if (product.additional === "con queso" || product.additional === "con huevo" ) {
+            product.price= product.price + 1;
+            product.priceTotal = product['quantity'] * product.price;
+          }
+          this.arrProduct.push(product);
+        };
     };
     // console.log('arrproduct', this.arrProduct);
     this.ordersSource.next(this.arrProduct);

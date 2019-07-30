@@ -12,9 +12,24 @@
                         <div class="card-body">
                             <h5 class="card-title">Hamburguesas Simples</h5>
                             <p class="card-text">Precio: $10</p>
-                            <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning "
-                                    (click)="addItemToMenuService(itemL.id)" *ngFor="let itemL of hamburguesasS">
+                            <div *ngFor="let itemL of hamburguesasS; let in = index">
+                                <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning "
+                                    (click)="addItemToMenuService(itemL.id, itemL.additional)">
                                     {{itemL.contentBurger}}</div>
+                                <div class="form-group ">
+                                    <label>Adicional</label>
+                                    <div class="form-control">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="con huevo" name="adicional-{{in}}"
+                                                [(ngModel)]="itemL.additional">huevo
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="con queso" name="adicional-{{in}}"
+                                                [(ngModel)]="itemL.additional">Queso
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
