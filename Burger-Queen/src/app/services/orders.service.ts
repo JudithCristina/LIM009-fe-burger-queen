@@ -12,6 +12,8 @@ export class OrdersService {
   arrProduct = [];
   filteredArrProduct: any
   arrCalculate: number;
+  emptyOrder = [];
+
 
   public ordersSource = new BehaviorSubject([]);
   currentOrders = this.ordersSource.asObservable();
@@ -78,6 +80,11 @@ export class OrdersService {
 
     this.ordersSource.next(this.arrProduct);
     this.totalDePedidos()
+  }
+
+  resetOrder() {
+    console.log('reset')
+    return this.ordersSource.next(this.arrProduct = [])
   }
 
 }

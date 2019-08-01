@@ -57,10 +57,7 @@ export class OrderComponent implements OnInit {
       time: this.fecha,
       status: 'Pendiente',
       total: this.totalProducto
-    }),
-    this.finalOrder=this.finalOrder.filter(ele=>{
-      return ele.name==="xxx"
-    })
+    }).then(elem => this.dataOrder.resetOrder());
     this.buyerName="";
     this.totalProducto=0
     alert("orden enviada")

@@ -44,7 +44,7 @@
                             <p class="card-text">Precio: $15</p>
                             <div>
                                 <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning"
-                                    (click)="addItemToMenuService(itemL.id)" *ngFor="let itemL of hamburguesasD">
+                                    (click)="addItemToMenuService(itemL.id, itemL.additional)" *ngFor="let itemL of hamburguesasD">
                                     {{itemL.contentBurger}}</div>
                             </div>
                         </div>
@@ -53,6 +53,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- <div id="hamburguesas" class="col-6 collapse" *ngFor="let itemL of hamburguesas">
         <div (click)="addItemToMenuService(itemL.id)"  class="card-deck ">
