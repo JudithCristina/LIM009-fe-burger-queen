@@ -20,22 +20,23 @@ export class LunchMenuComponent implements OnInit {
   productAdded:object;
   adicionalesHambur:string
   
-  addItemToMenuService(itemLunchID,adicional?:string) {
+  addItemToMenuService(itemLunchID,adicional1?:boolean, adicional2?:boolean) {
     for (let i = 0; i < this.itemsLunchMenu.length; i++) {
       if (this.itemsLunchMenu[i].id === itemLunchID) {
         this.productAdded = {
           id: itemLunchID,
           name: this.itemsLunchMenu[i].name,
           typeOfBurger: '',
-          additional: adicional=== undefined ? "" : adicional,
+          additional1: adicional1=== false ? " " :(adicional1 === undefined ? "" : "con huevo") ,
+          additional2: adicional2=== false ? " " :(adicional2 === undefined ? "" : "con queso") ,
           quantity: 1,
           price: this.itemsLunchMenu[i].price,
           priceTotal: this.itemsLunchMenu[i].price}
       }
+      console.log(this.productAdded)
     }
     this.orderService.addProduct(this.productAdded)
   }
-
   constructor(private menuService: MenuService, private orderService: OrdersService)  { 
     this.menuService.getItemsLunch().subscribe(itemsL => {
       this.hamburguesasS = itemsL.filter((ele:any) => ele.subcategory ==='Hamburguesas simples' )

@@ -25,7 +25,7 @@
     <tbody>
       <tr *ngFor="let itemOrder of finalOrder, let i = index">
         <th scope="row">{{i+1}}</th>
-        <td>{{itemOrder.name}} {{itemOrder.additional}}</td>
+        <td>{{itemOrder.name}} {{itemOrder.additional1}} {{itemOrder.additional2}}</td>
         <td>{{itemOrder.quantity}}</td>
         <td>{{itemOrder.price}}</td>
         <td>{{itemOrder.priceTotal}}</td>

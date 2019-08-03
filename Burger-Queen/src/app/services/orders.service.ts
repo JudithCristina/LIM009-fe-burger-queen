@@ -25,10 +25,14 @@ export class OrdersService {
   addProduct(product) {
     if (this.arrProduct.length === 0) {
       this.arrProduct.push(product);
+      if (product.additional2 === "con queso" || product.additional1 === "con huevo" ){
+        product.price= product.price + 1;
+            product.priceTotal = product['quantity'] * product.price;
+      }
     } else {
       this.filteredArrProduct = this.arrProduct.filter(elem => {
         // console.log('elem', elem);
-        return (elem.name !== product.name  || ( elem.name === product.name && product.additional === "con huevo" ) || (elem.name === product.name && product.additional === "con queso"  ));
+        return (elem.name !== product.name  || ( elem.name === product.name && product.additional1 === "con huevo" ) ||  ( elem.name === product.name && product.additional2 === "con queso" )||  ( elem.name === product.name && product.additional2 === "con queso" && product.additional1 === "con huevo" )||  ( elem.name === product.name && product.additional2 === " " && product.additional1 === " " ));
       });
       if (this.arrProduct.length > this.filteredArrProduct.length) {
         for (let i = 0; i < this.arrProduct.length; i++) {
@@ -38,7 +42,7 @@ export class OrdersService {
           }
         };
       } else {
-          if (product.additional === "con queso" || product.additional === "con huevo" ) {
+          if (product.additional2 === "con queso" || product.additional1 === "con huevo" ) {
             product.price= product.price + 1;
             product.priceTotal = product['quantity'] * product.price;
           }
