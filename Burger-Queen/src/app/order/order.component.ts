@@ -18,6 +18,7 @@ export class OrderComponent implements OnInit {
   fecha: any;
   dataPedidos = [];
   numeroDePedidos: number;
+  todasOrders = []
   constructor(private dataOrder: OrdersService, private menuService: MenuService, private dataName: DataService) {
     this.registrarNumeroDeOrden()
   }
@@ -49,9 +50,10 @@ export class OrderComponent implements OnInit {
       this.numeroDePedidos = dataPedidos.length + 1;
     })
   }
-
+  
   sendOrder() {
     this.menuService.sendOrderToKitchen({
+      numberOrders: this.numeroDePedidos,
       clientName: this.buyerName,
       products: this.finalOrder,
       time: this.fecha,
@@ -67,6 +69,9 @@ export class OrderComponent implements OnInit {
 
   newOrder() {
     window.location.reload()
+  }
+  addNewQuantity(index, cantidadModificada){
+    this.dataOrder.acumuladorDePedidos(index, cantidadModificada)
   }
 }
 
