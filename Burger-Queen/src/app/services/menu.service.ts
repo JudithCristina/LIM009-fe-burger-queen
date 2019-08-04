@@ -17,13 +17,18 @@ export class MenuService {
   private totalOrders= new BehaviorSubject('');
   listOrders= this.totalOrders.asObservable();
 
-  updateOrder(order) {
+  updateOrderReadyToServer(order) {
     return this.angularfs
         .collection("orders")
         .doc(order)
         .update({ status: 'Listo para servir'});
  }
-
+ updateDelivery(order) {
+  return this.angularfs
+      .collection("orders")
+      .doc(order)
+      .update({ status: 'Entregado'});
+}
 
 
 
@@ -87,18 +92,22 @@ export class MenuService {
   getDataNumeroDePedidos(){
     return this.angularfs.collection('orders').valueChanges();
    }
+
    
    getTotalOrders() {
-    return this.angularfs.collection('orders').snapshotChanges()
+    return this.angularfs.collection('orders', ref => ref.orderBy('time', 'desc')).snapshotChanges()
     .pipe(
       map(response => {
         return response.map(element => {
             const id = element.payload.doc.id;
-            const data = element.payload.doc.data();
+            const data = element.payload.doc.data()
             return {id, ...data}
           })
         })
-    )} 
+    )
+  } 
+
+ 
 
 
   }

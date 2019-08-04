@@ -42,7 +42,7 @@
                         </tr>
                       </tbody>
                     </table>
-                <a class="btn btn-primary" (click)="sendStatusOrder(itemOrder.id)">Listo para Servir</a>
+                <a class="btn btn-primary" (click)="sendStatusReadyToServer(itemOrder.id)">Listo para Servir</a>
               </div>
               <div class="card-footer text-muted">
                 2 days ago
@@ -76,7 +76,39 @@
                         </tr>
                       </tbody>
                     </table>
-                <a class="btn btn-primary" (click)="sendStatusOrder(itemOrder.id)">Listo para ser entregados </a>
+                <a class="btn btn-primary" (click)="sendStatusDelivery(itemOrder.id)">Listo para ser entregados </a>
+              </div>
+              <div class="card-footer text-muted">
+                2 days ago
+              </div>
+            </div>
+      </div>
+      </div>
+  </div>
+  <div  class="card-body" *ngIf='showDelivery'>
+    <div class="row ml-3 mr-3 mt-3">
+      <div class="col-6"  *ngFor="let itemOrder of ordersDelivery, let i = index" >
+          <div class="card text-center mb-3">
+              <div class="card-header">
+                N° de Orden: {{itemOrder.numberOrders}}  -   Cliente: {{itemOrder.clientName}}
+              </div>
+              <div class="card-body">
+                  <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">N°</th>
+                          <th scope="col">Producto</th>
+                          <th scope="col">Cantidad</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let itemOrder1 of itemOrder.products, let i = index">
+                          <th scope="row">{{i+1}}</th>
+                          <td>{{itemOrder1.name}} {{itemOrder1.additional1}} {{itemOrder1.additional2}}</td>
+                          <td>{{itemOrder1.quantity}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
               </div>
               <div class="card-footer text-muted">
                 2 days ago

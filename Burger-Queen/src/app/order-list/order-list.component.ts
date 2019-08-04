@@ -11,6 +11,7 @@ export class OrderListComponent implements OnInit {
 
   ordersPending : any;
   ordersReadyToServe : any;
+  ordersDelivery: any;
   timeLeft: number = 60; 
   interval; 
   showActivePending: boolean =true;
@@ -48,6 +49,7 @@ export class OrderListComponent implements OnInit {
     this.showActivePending = false;
     this.showActiveReadyToServe = false;
     this.showActiveDelivery = true;
+    this.ordersDelivery
   }
 
   
@@ -56,7 +58,8 @@ export class OrderListComponent implements OnInit {
 
   constructor(private menuService: MenuService) { 
     this.filterOrderPending();
-    this.filterOrderReadyToServe()
+    this.filterOrderReadyToServe();
+    this.filterOrderDelivery()
   }
 
   filterOrderPending() {
@@ -67,6 +70,11 @@ export class OrderListComponent implements OnInit {
   filterOrderReadyToServe(){
     this.menuService.getTotalOrders().subscribe(dataPedidos => {
       this.ordersReadyToServe= dataPedidos.filter((ele:any) => ele.status === 'Listo para servir' )
+    })
+  }
+  filterOrderDelivery(){
+    this.menuService.getTotalOrders().subscribe(dataPedidos => {
+      this.ordersDelivery= dataPedidos.filter((ele:any) => ele.status === 'Entregado' )
       console.log(this.ordersReadyToServe)
     })
   }
@@ -76,9 +84,11 @@ export class OrderListComponent implements OnInit {
       // console.log('totalProducto', this.totalProducto);
     })
   }
-  sendStatusOrder(orderId) {
-    this.menuService.updateOrder(orderId)
+  sendStatusReadyToServer(orderId) {
+    this.menuService.updateOrderReadyToServer(orderId)
   }
-
+  sendStatusDelivery(orderId) {
+    this.menuService.updateDelivery(orderId)
+  }
 
 }
