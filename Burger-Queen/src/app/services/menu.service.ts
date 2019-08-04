@@ -3,6 +3,8 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Item } from '../models/Item';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,19 @@ export class MenuService {
   menuBreakfastCollection: AngularFirestoreCollection<Item>
   itemsB: Observable<Item[]>
   itemsL: Observable<Item[]>
+
+  private totalOrders= new BehaviorSubject('');
+  listOrders= this.totalOrders.asObservable();
+
+  updateOrder(order) {
+    return this.angularfs
+        .collection("orders")
+        .doc(order)
+        .update({ status: 'Listo para servir'});
+ }
+
+
+
 
   constructor(public angularfs: AngularFirestore) { 
     // this.itemsB = this.angularfs.collection('menuBreakfast').valueChanges();
@@ -50,7 +65,7 @@ export class MenuService {
       })
     );
   }
-
+  
   getItemsLunch() {
     return this.angularfs.collection('menuLunch').snapshotChanges()
     .pipe(
@@ -72,6 +87,19 @@ export class MenuService {
   getDataNumeroDePedidos(){
     return this.angularfs.collection('orders').valueChanges();
    }
-}
+   
+   getTotalOrders() {
+    return this.angularfs.collection('orders').snapshotChanges()
+    .pipe(
+      map(response => {
+        return response.map(element => {
+            const id = element.payload.doc.id;
+            const data = element.payload.doc.data();
+            return {id, ...data}
+          })
+        })
+    )} 
 
+
+  }
 
