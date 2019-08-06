@@ -22,12 +22,17 @@
       bottom:0;
      width: 100%;
     }
-  .letter-color{
-    color: red
-  }
+  
 
   .card-body
   {
-    height: 350px;
+    height: 280px;
     overflow: scroll;
+  }
+ 
+  .letter{
+    color:black
+  }
+  .bg-yellow{
+    background: #fee405
   }

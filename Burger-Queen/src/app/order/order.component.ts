@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { OrdersService } from '../services/orders.service';
 import { MenuService } from '../services/menu.service';
 import { DataService } from '../data.service';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-order',
@@ -62,7 +64,13 @@ export class OrderComponent implements OnInit {
     }).then(elem => this.dataOrder.resetOrder());
     this.buyerName="";
     this.totalProducto=0
-    alert("orden enviada")
+    Swal.fire({
+      position: 'center',
+      type: 'success',
+      title: 'La orden fue enviada',
+      showConfirmButton: false,
+      timer: 2000
+    })
     // this.menuService.reset()
   }
 

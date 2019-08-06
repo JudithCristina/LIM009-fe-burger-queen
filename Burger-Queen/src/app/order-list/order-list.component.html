@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-    <img class="out" src="../../assets/out.png" alt="">
+    <img routerLink='' class="out" src="../../assets/out.png" alt="">
     <img class="logo" src="../../assets/logoBurgerQueen.png" />
-    <button type="button" class="btn btn-outline-warning"><strong>VER PEDIDO</strong></button>
 
 </nav>
 <div class="card text-center">
@@ -19,11 +18,13 @@
     </ul>
   </div>
   <div class="card-body-1" *ngIf='showPending'>
+
+  <p> 0{{timeMinutos}} : {{timeSeconds}}</p> 
     <div class="row ml-3 mr-3 mt-3">
       <div class="col-6"  *ngFor="let itemOrder of ordersPending, let i = index" >
-          <div class="card text-center mb-3">
-              <div class="card-header">
-                N° de Orden: {{itemOrder.numberOrders}}  -   Cliente: {{itemOrder.clientName}}
+          <div class="card text-center mb-3 border border-warning">
+              <div class="card-header text-center font-weight-bold bg-yellow">
+                ORDEN N°: {{itemOrder.numberOrders}}  -   CLIENTE: {{itemOrder.clientName}}
               </div>
               <div class="card-body">
                   <table class="table table-striped">
@@ -42,23 +43,22 @@
                         </tr>
                       </tbody>
                     </table>
-                <a class="btn btn-primary" (click)="sendStatusReadyToServer(itemOrder.id)">Listo para Servir</a>
               </div>
-              <div class="card-footer text-muted">
-                2 days ago
+              <div class="card-footer">
+                <button   class="btn btn-success col align-self-end font-weight-bold font-white" (click)="sendStatusReadyToServer(itemOrder.id)"><strong>Listo para servir</strong></button>
               </div>
             </div>
       </div>
       </div>
       
   </div>
-  <div  class="card-body" *ngIf='showReadyToServe'>
+  <div  class="card-body2" *ngIf='showReadyToServe'>
     <div class="row ml-3 mr-3 mt-3">
       <div class="col-6"  *ngFor="let itemOrder of ordersReadyToServe, let i = index" >
-          <div class="card text-center mb-3">
-              <div class="card-header">
-                N° de Orden: {{itemOrder.numberOrders}}  -   Cliente: {{itemOrder.clientName}}
-              </div>
+          <div class="card text-center mb-3 border border-warning">
+            <div class="card-header text-center font-weight-bold bg-yellow">
+              ORDEN N°: {{itemOrder.numberOrders}}  -   CLIENTE: {{itemOrder.clientName}}
+            </div>
               <div class="card-body">
                   <table class="table table-striped">
                       <thead>
@@ -76,22 +76,21 @@
                         </tr>
                       </tbody>
                     </table>
-                <a class="btn btn-primary" (click)="sendStatusDelivery(itemOrder.id)">Listo para ser entregados </a>
               </div>
-              <div class="card-footer text-muted">
-                2 days ago
+              <div class="card-footer">
+                <button   class="btn btn-success col align-self-end font-weight-bold font-white" (click)="sendStatusDelivery(itemOrder.id)"><strong>Entregado</strong></button>
               </div>
             </div>
       </div>
       </div>
   </div>
-  <div  class="card-body" *ngIf='showDelivery'>
+  <div  class="card-body3" *ngIf='showDelivery'>
     <div class="row ml-3 mr-3 mt-3">
       <div class="col-6"  *ngFor="let itemOrder of ordersDelivery, let i = index" >
-          <div class="card text-center mb-3">
-              <div class="card-header">
-                N° de Orden: {{itemOrder.numberOrders}}  -   Cliente: {{itemOrder.clientName}}
-              </div>
+          <div class="card text-center mb-3 border border-warning">
+            <div class="card-header text-center font-weight-bold bg-yellow">
+              ORDEN N°: {{itemOrder.numberOrders}}  -   CLIENTE: {{itemOrder.clientName}}
+            </div>
               <div class="card-body">
                   <table class="table table-striped">
                       <thead>

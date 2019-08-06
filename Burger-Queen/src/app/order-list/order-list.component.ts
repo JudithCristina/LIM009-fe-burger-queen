@@ -12,8 +12,8 @@ export class OrderListComponent implements OnInit {
   ordersPending : any;
   ordersReadyToServe : any;
   ordersDelivery: any;
-  timeLeft: number = 60; 
-  interval; 
+  
+ 
   showActivePending: boolean =true;
   showActiveReadyToServe:boolean = false
   showActiveDelivery:boolean = false
@@ -21,7 +21,14 @@ export class OrderListComponent implements OnInit {
   showReadyToServe: boolean = false;
   showDelivery: boolean = false;
   ordersTotal:any
+  timeSeconds: number = 0; 
+  timeMinutos: number =0;
+  interval; 
 
+
+  startTimer() { this.interval = setInterval(() => { if (this.timeSeconds===60){this.timeSeconds=0;this.timeMinutos++ }else {this.timeSeconds++}},1000) } 
+  //pauseTimer() { clearInterval(this.interval); } 
+ 
   openPending() {
     this.showPending = true;
     this.showReadyToServe = false;
@@ -52,14 +59,13 @@ export class OrderListComponent implements OnInit {
     this.ordersDelivery
   }
 
-  
-  startTimer() { this.interval = setInterval(() => { if(this.timeLeft > 0) { this.timeLeft--; } else { this.timeLeft = 60; } },1000) } 
-  pauseTimer() { clearInterval(this.interval); }
+
 
   constructor(private menuService: MenuService) { 
     this.filterOrderPending();
     this.filterOrderReadyToServe();
-    this.filterOrderDelivery()
+    this.filterOrderDelivery();
+    this.startTimer()
   }
 
   filterOrderPending() {

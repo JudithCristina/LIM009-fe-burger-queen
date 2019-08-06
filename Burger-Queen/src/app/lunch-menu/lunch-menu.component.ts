@@ -27,8 +27,8 @@ export class LunchMenuComponent implements OnInit {
           id: itemLunchID,
           name: this.itemsLunchMenu[i].name,
           typeOfBurger: '',
-          additional1: adicional1=== false ? " " :(adicional1 === undefined ? "" : "con huevo") ,
-          additional2: adicional2=== false ? " " :(adicional2 === undefined ? "" : "con queso") ,
+          additional1: adicional1=== true ? "con huevo" :(adicional1 === false ? " " : "") ,
+          additional2: adicional2=== true ? "con queso" :(adicional1 === false ? " " : ""),
           quantity: 1,
           price: this.itemsLunchMenu[i].price,
           priceTotal: this.itemsLunchMenu[i].price}
