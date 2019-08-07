@@ -17,7 +17,7 @@ export class OrderComponent implements OnInit {
   show = true;
   totalProducto: number;
   buyerName: string;
-  fecha: any;
+  fecha = new Date();
   dataPedidos = [];
   numeroDePedidos: number;
   todasOrders = []
@@ -31,7 +31,6 @@ export class OrderComponent implements OnInit {
 
 
   ngOnInit() {
-    this.fecha = new Date();
     this.dataOrder.currentOrders.subscribe(arrOrder => {
       // console.log('Orden lista', arrOrder);
       this.finalOrder = arrOrder;
@@ -58,7 +57,7 @@ export class OrderComponent implements OnInit {
       numberOrders: this.numeroDePedidos,
       clientName: this.buyerName,
       products: this.finalOrder,
-      time: this.fecha,
+      time:  Date.now(),
       status: 'Pendiente',
       total: this.totalProducto
     }).then(elem => this.dataOrder.resetOrder());

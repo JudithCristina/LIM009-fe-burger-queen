@@ -42,7 +42,10 @@ export class OrdersService {
           }
         };
       } else {
-        if (product.additional2 === "con queso" || product.additional1 === "con huevo") {
+        if (product.additional2 === "con queso" && product.additional1 === "con huevo") {
+          product.price = product.price + 2;
+          product.priceTotal = product['quantity'] * product.price;
+        } else if (product.additional2 === "con queso" || product.additional1 === "con huevo"){
           product.price = product.price + 1;
           product.priceTotal = product['quantity'] * product.price;
         }

@@ -3,7 +3,7 @@
 <div clas="col-6">
   <div class="form-group margin-top font-white">
     <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning" id="inputGroup-sizing-sm">FECHA :
-      {{ fecha | date: 'short'}}</div>
+      {{ fecha | date:'dd-MM-yyyy'}}</div>
     <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning" id="inputGroup-sizing-sm">ORDEN N°: 00{{numeroDePedidos}}</div>
     <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning" id="inputGroup-sizing-sm">
       Cliente: <input type="text" placeholder="nombre del cliente" [(ngModel)]="buyerName"/>

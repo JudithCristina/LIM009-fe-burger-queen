@@ -95,7 +95,7 @@ export class MenuService {
 
    
    getTotalOrders() {
-    return this.angularfs.collection('orders', ref => ref.orderBy('time', 'desc')).snapshotChanges()
+    return this.angularfs.collection('orders', ref => ref.orderBy('time', 'asc')).snapshotChanges()
     .pipe(
       map(response => {
         return response.map(element => {

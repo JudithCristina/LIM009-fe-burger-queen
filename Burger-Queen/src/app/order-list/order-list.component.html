@@ -18,13 +18,12 @@
     </ul>
   </div>
   <div class="card-body-1" *ngIf='showPending'>
-
-  <p> 0{{timeMinutos}} : {{timeSeconds}}</p> 
     <div class="row ml-3 mr-3 mt-3">
       <div class="col-6"  *ngFor="let itemOrder of ordersPending, let i = index" >
           <div class="card text-center mb-3 border border-warning">
               <div class="card-header text-center font-weight-bold bg-yellow">
-                ORDEN N°: {{itemOrder.numberOrders}}  -   CLIENTE: {{itemOrder.clientName}}
+                  <p> Tiempo de preparacíon: {{timers[itemOrder.id].hours}} : {{ timers[itemOrder.id].minutes}} : {{timers[itemOrder.id].seconds }}</p>
+                <p>ORDEN N°: {{itemOrder.numberOrders}}  -   CLIENTE: {{itemOrder.clientName}}</p>
               </div>
               <div class="card-body">
                   <table class="table table-striped">
@@ -49,7 +48,7 @@
               </div>
             </div>
       </div>
-      </div>
+      </div> <br><br>
       
   </div>
   <div  class="card-body2" *ngIf='showReadyToServe'>
@@ -82,7 +81,7 @@
               </div>
             </div>
       </div>
-      </div>
+      </div><br><br>
   </div>
   <div  class="card-body3" *ngIf='showDelivery'>
     <div class="row ml-3 mr-3 mt-3">
@@ -109,12 +108,9 @@
                       </tbody>
                     </table>
               </div>
-              <div class="card-footer text-muted">
-                2 days ago
-              </div>
             </div>
       </div>
-      </div>
+      </div><br><br>
   </div>
 </div>
 
