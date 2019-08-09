@@ -22,8 +22,11 @@
       <div class="col-6"  *ngFor="let itemOrder of ordersPending, let i = index" >
           <div class="card text-center mb-3 border border-warning">
               <div class="card-header text-center font-weight-bold bg-yellow">
-                  <p> Tiempo de preparacíon: {{timers[itemOrder.id].hours}} : {{ timers[itemOrder.id].minutes}} : {{timers[itemOrder.id].seconds }}</p>
-                <p>ORDEN N°: {{itemOrder.numberOrders}}  -   CLIENTE: {{itemOrder.clientName}}</p>
+                  <p *ngIf="timers[itemOrder.id].seconds <= 9 && timers[itemOrder.id].minutes>=10 "> Tiempo de preparacíon: {{timers[itemOrder.id].hours}} : {{ timers[itemOrder.id].minutes}} : 0{{timers[itemOrder.id].seconds }}</p>
+                  <p *ngIf="timers[itemOrder.id].seconds >= 10 && timers[itemOrder.id].minutes<=9"> Tiempo de preparacíon: {{timers[itemOrder.id].hours}} : 0{{ timers[itemOrder.id].minutes}} : {{timers[itemOrder.id].seconds }}</p>
+                  <p *ngIf="timers[itemOrder.id].seconds <= 9 && timers[itemOrder.id].minutes<= 9 "> Tiempo de preparacíon: {{timers[itemOrder.id].hours}} : 0{{ timers[itemOrder.id].minutes}} : 0{{timers[itemOrder.id].seconds }}</p>
+                  <p *ngIf="timers[itemOrder.id].seconds >= 10&& timers[itemOrder.id].minutes>= 10"> Tiempo de preparacíon: {{timers[itemOrder.id].hours}} : {{ timers[itemOrder.id].minutes}} : {{timers[itemOrder.id].seconds }}</p>
+                  <p>ORDEN N°: {{itemOrder.numberOrders}}  -   CLIENTE: {{itemOrder.clientName}}</p>
               </div>
               <div class="card-body">
                   <table class="table table-striped">
@@ -44,7 +47,7 @@
                     </table>
               </div>
               <div class="card-footer">
-                <button   class="btn btn-success col align-self-end font-weight-bold font-white" (click)="sendStatusReadyToServer(itemOrder.id)"><strong>Listo para servir</strong></button>
+                <button   class="btn btn-success col align-self-end font-weight-bold font-white" (click)="sendStatusReadyToServer(itemOrder)"><strong>Listo para servir</strong></button>
               </div>
             </div>
       </div>
@@ -56,6 +59,7 @@
       <div class="col-6"  *ngFor="let itemOrder of ordersReadyToServe, let i = index" >
           <div class="card text-center mb-3 border border-warning">
             <div class="card-header text-center font-weight-bold bg-yellow">
+              <p>Tiempo de preparación: {{itemOrder.timeIntervalPR.hours}}:{{itemOrder.timeIntervalPR.minutes}}:{{itemOrder.timeIntervalPR.seconds}}</p>
               ORDEN N°: {{itemOrder.numberOrders}}  -   CLIENTE: {{itemOrder.clientName}}
             </div>
               <div class="card-body">

@@ -53,7 +53,7 @@ export class MenuService {
   }
 
   getItemsBreakfast() {
-    return this.angularfs.collection('menuBreakfast').snapshotChanges()
+    return this.angularfs.collection('menuBreakfast', ref => ref.orderBy('name', 'asc')).snapshotChanges()
     .pipe(
       map(response => {
         const arr: Item[] = [];
@@ -72,7 +72,7 @@ export class MenuService {
   }
   
   getItemsLunch() {
-    return this.angularfs.collection('menuLunch').snapshotChanges()
+    return this.angularfs.collection('menuLunch', ref => ref.orderBy('name', 'asc')).snapshotChanges()
     .pipe(
       map(changes => {
       return changes.map(l => {

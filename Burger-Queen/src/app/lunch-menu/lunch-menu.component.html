@@ -13,19 +13,22 @@
                             <h5 class="card-title">Hamburguesas Simples</h5>
                             <p class="card-text">Precio: $10</p>
                             <div *ngFor="let itemL of hamburguesasS; let in = index">
-                                <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning "
+                                <div class="text-center p-1 mb-2 mt-3 font-weight-bold bg-warning font-black "
                                     (click)="addItemToMenuService(itemL.id, itemL.additional1, itemL.additional2)">
                                     {{itemL.contentBurger}}</div>
                                 <div class="form-group ">
-                                    <label>Adicional</label>
-                                    <div class="form-control">
-                                        <label class="checkbox">
-                                            <input type="checkbox" [(ngModel)]="itemL.additional1" name="adicional1-{{in}}">huevo
+                                    <p>Adicional <br> (Precio: $1 c/u)</p>
+                                    <div class="form-control border-trans">
+                                        <label class="checkbox mr-4">
+                                            <input class="mr-1 bigger-input" type="checkbox" [(ngModel)]="itemL.additional1" name="adicional1-{{in}}">Huevo
                                         </label>
-                                        <label class="checkbox">
-                                            <input type="checkbox" [(ngModel)]="itemL.additional2" name="adicional1-{{in}}">Queso
+                                        <label class="checkbox ml-4">
+                                            <input class="mr-1" type="checkbox" [(ngModel)]="itemL.additional2" name="adicional1-{{in}}">Queso
                                         </label>
                                     </div>
+                                </div>
+                                <div class="card mb-1 border-trans">
+                                <button class="btn  btn-success col align-self-end font-weight-bold font-black">Añadir</button>
                                 </div>
                             </div>       
                         </div>
@@ -41,21 +44,22 @@
                             <h5 class="card-title">Hamburguesas Dobles</h5>
                             <p class="card-text">Precio: $15</p>
                             <div *ngFor="let itemL of hamburguesasD; let in = index">
-                                    <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning "
-                                        (click)="addItemToMenuService(itemL.id, itemL.additional1, itemL.additional2)">
-                                        {{itemL.contentBurger}}</div>
-                                    <div class="form-group ">
-                                        <label>Adicional</label>
-                                        <div class="form-control">
-                                            <label class="checkbox">
-                                                <input type="checkbox" [(ngModel)]="itemL.additional1" name="adicional2-{{in}}">huevo
-                                            </label>
-                                            <label class="checkbox">
-                                                <input type="checkbox" [(ngModel)]="itemL.additional2" name="adicional2-{{in}}">Queso
-                                            </label>
-                                        </div>
+                                <div class="text-center p-1 mb-2 mt-3 font-weight-bold bg-warning font-black ">{{itemL.contentBurger}}</div>
+                                <div class="form-group ">
+                                    <p>Adicional <br> (Precio: $1 c/u)</p>
+                                    <div class="form-control border-trans">
+                                        <label class="checkbox mr-4">
+                                            <input class="mr-1 bigger-input" type="checkbox" [(ngModel)]="itemL.additional1" name="adicional1-{{in}}">Huevo
+                                        </label>
+                                        <label class="checkbox ml-4">
+                                            <input class="mr-1" type="checkbox" [(ngModel)]="itemL.additional2" name="adicional1-{{in}}">Queso
+                                        </label>
                                     </div>
                                 </div>
+                                <div class="card mb-1 border-trans">
+                                <button class="btn  btn-success col align-self-end font-weight-bold font-black"  (click)="addItemToMenuService(itemL.id, itemL.additional1, itemL.additional2)">Añadir</button>
+                                </div>
+                            </div>    
                         </div>
                     </div>
                 </div>

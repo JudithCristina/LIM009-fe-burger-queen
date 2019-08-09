@@ -97,7 +97,7 @@ export class OrdersService {
   acumuladorDePedidos(index, cantidadModificada) {
     for (let i = 0; i < this.arrProduct.length; i++) {
       if (i === index) {
-        this.arrProduct[i].quantity = cantidadModificada;
+        this.arrProduct[i].quantity = parseInt(cantidadModificada);
         this.arrProduct[i].priceTotal = this.arrProduct[i].quantity * this.arrProduct[i].price
       }
     }

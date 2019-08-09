@@ -17,3 +17,19 @@ label {
   padding-left:0 !important;
   margin-left:0 !important;
 }
+
+.card-body{
+  padding: 0%
+}
+.border-trans{
+  border: white
+}
+.font-black{
+  color:black
+}
+
+.font-white{
+  color:rgba(53, 46, 46, 0.931);
+  border-color: rgb(0, 0, 0);
+  border:2px
+}

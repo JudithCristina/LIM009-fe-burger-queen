@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../services/menu.service';
+import Swal from 'sweetalert2'
+import { interval } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-order-list',
@@ -22,6 +25,7 @@ export class OrderListComponent implements OnInit {
   showReadyToServe: boolean = false;
   showDelivery: boolean = false;
   ordersTotal:any
+  interval:any
   timers = {};
 
   openPending() {
@@ -54,7 +58,7 @@ export class OrderListComponent implements OnInit {
     this.ordersDelivery
   }
 
-  constructor(private menuService: MenuService) { 
+  constructor(private menuService: MenuService, public angularfs: AngularFirestore) { 
     this.filterOrderPending();
     this.filterOrderReadyToServe();
     this.filterOrderDelivery();
@@ -79,27 +83,28 @@ export class OrderListComponent implements OnInit {
 
 
   timeIntervalo(obj){
-    const objTime=obj.time
-    const finalDate= Date.now()
-    let interval
-    const secondInterval =(finalDate-objTime)/1000
+    const objTime=obj.time;
+    const finalDate= Date.now();
+    const secondInterval =(finalDate-objTime)/1000;
     let seconds = Math.trunc(secondInterval % 60);
     let totalMinutes = Math.trunc(secondInterval / 60);
     let minutes = Math.trunc(totalMinutes% 60);
     let hours = Math.trunc(totalMinutes / 60);
-  interval = setInterval(() => {
+    this.interval = setInterval(() => {
     seconds++;
     if (seconds > 59) {
       seconds = 0;
+      minutes++
     }
     if (minutes > 59) {
       minutes = 0;
+      hours++
     }
 
     this.timers[obj.id] = {
       hours,
       minutes,
-      seconds: seconds,
+      seconds: seconds
     };
   }, 1000);
   }
@@ -121,9 +126,20 @@ export class OrderListComponent implements OnInit {
     })
     
 }
-  sendStatusReadyToServer(orderId) {
-    this.menuService.updateOrderReadyToServer(orderId)
+  sendStatusReadyToServer(order) {
+    this.menuService.updateOrderReadyToServer(order.id)
+    this.angularfs.collection("orders").doc(order.id).update({timeIntervalPR:this.timers[order.id]})
+    console.log(this.timers[order.id])
+    Swal.fire({
+      position: 'center',
+      type: 'success',
+      title: 'Listo para servir',
+      html:`<p>Tiempo de Preparación:  ${this.timers[order.id].hours} :  ${this.timers[order.id].minutes} : ${this.timers[order.id].seconds}</p>`,
+      showConfirmButton: false,
+      timer: 2000
+    })
   }
+  
   sendStatusDelivery(orderId) {
     this.menuService.updateDelivery(orderId)
   }

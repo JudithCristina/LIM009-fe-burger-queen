@@ -17,12 +17,31 @@ export class OrderComponent implements OnInit {
   show = true;
   totalProducto: number;
   buyerName: string;
-  fecha = new Date();
   dataPedidos = [];
   numeroDePedidos: number;
-  todasOrders = []
+  todasOrders = [];
+  fecha = new Date()
+  h = this.fecha.getHours();
+  m = this.fecha.getMinutes();
+  s = this.fecha.getSeconds();
+  
+  interval= setInterval(() => {this.s++; if (this.s > 59) {this.s = 0; this.m++}
+    else if (this.m > 59) {
+      this.m = 0;
+      this.h++;
+    } }, 1000);
+
+ actualizarHora(i) {
+
+    if (i<10) {i = "0" + i};  // Añadir el cero en números menores de 10
+
+    return i;
+
+}
+
   constructor(private dataOrder: OrdersService, private menuService: MenuService, private dataName: DataService) {
-    this.registrarNumeroDeOrden()
+    this.registrarNumeroDeOrden();
+    this.interval
   }
 
   eliminar(index:any) {
@@ -59,6 +78,7 @@ export class OrderComponent implements OnInit {
       products: this.finalOrder,
       time:  Date.now(),
       status: 'Pendiente',
+      timeIntervalPR:'',
       total: this.totalProducto
     }).then(elem => this.dataOrder.resetOrder());
     this.buyerName="";
@@ -73,10 +93,6 @@ export class OrderComponent implements OnInit {
     // this.menuService.reset()
   }
 
-
-  newOrder() {
-    window.location.reload()
-  }
   addNewQuantity(index, cantidadModificada){
     this.dataOrder.acumuladorDePedidos(index, cantidadModificada)
   }

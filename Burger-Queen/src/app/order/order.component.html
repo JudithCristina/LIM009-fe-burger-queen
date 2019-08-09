@@ -2,11 +2,18 @@
 
 <div clas="col-6">
   <div class="form-group margin-top font-white">
-    <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning" id="inputGroup-sizing-sm">FECHA :
-      {{ fecha | date:'dd-MM-yyyy'}}</div>
-    <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning" id="inputGroup-sizing-sm">ORDEN N°: 00{{numeroDePedidos}}</div>
+    <div *ngIf="s <= 9 && m>=10 " class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning"
+      id="inputGroup-sizing-sm"> FECHA : {{ fecha | date:'dd-MM-yyyy'}} - {{h}}:{{m}}:0{{s}}</div>
+    <div *ngIf="s >= 10 && m<=9 " class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning"
+      id="inputGroup-sizing-sm"> FECHA : {{ fecha | date:'dd-MM-yyyy'}} - {{h}}:0{{m}}:{{s}}</div>
+    <div *ngIf="s <= 9 && m<=9 " class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning"
+      id="inputGroup-sizing-sm"> FECHA : {{ fecha | date:'dd-MM-yyyy'}} - {{h}}:0{{m}}:0{{s}}</div>
+    <div *ngIf="s >= 10 && m>=10 " class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning"
+      id="inputGroup-sizing-sm"> FECHA : {{ fecha | date:'dd-MM-yyyy'}} - {{h}}:{{m}}:{{s}}</div>
+    <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning" id="inputGroup-sizing-sm">ORDEN N°:
+      00{{numeroDePedidos}}</div>
     <div class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning" id="inputGroup-sizing-sm">
-      Cliente: <input type="text" placeholder="nombre del cliente" [(ngModel)]="buyerName"/>
+      Cliente: <input type="text" placeholder="nombre del cliente" [(ngModel)]="buyerName" />
       <!-- <strong>{{ buyerName }}</strong> -->
     </div>
   </div>
@@ -26,10 +33,11 @@
       <tr *ngFor="let itemOrder of finalOrder, let i = index">
         <th scope="row">{{i+1}}</th>
         <td>{{itemOrder.name}} {{itemOrder.additional1}} {{itemOrder.additional2}}</td>
-        <td> <input type="number" style="max-width:50px" [ngModel]="itemOrder.quantity" min="1" max="20" #newQuantity (click)="addNewQuantity(i, newQuantity.value)"></td>
+        <td> <input type="number" style="max-width:50px" [ngModel]="itemOrder.quantity" min=1 max=100 #newQuantity
+            (click)="addNewQuantity(i, newQuantity.value)"></td>
         <td>{{itemOrder.price}}</td>
         <td>{{itemOrder.priceTotal}}</td>
-        <td><img (click)="eliminar(i)" class="delete-btn" src='../../assets/delete-btn.png'/></td>
+        <td><img (click)="eliminar(i)" class="delete-btn" src='../../assets/delete-btn.png' /></td>
       </tr>
     </tbody>
     <tfoot>
@@ -43,5 +51,6 @@
     </tfoot>
   </table>
 </div>
-<button   class="btn btn-success col align-self-end font-weight-bold font-white" (click)="sendOrder()" [disabled]="!buyerName">Enviar orden</button>
+<button class="btn btn-success col align-self-end font-weight-bold font-black" (click)="sendOrder()"
+  [disabled]="!buyerName">Enviar orden</button>
 <br><br><br><br>
