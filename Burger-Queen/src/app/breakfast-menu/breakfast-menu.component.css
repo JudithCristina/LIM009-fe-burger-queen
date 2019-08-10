@@ -6,3 +6,8 @@
 .card {
   cursor: pointer;
 }
+
+.effect:hover{
+  border: solid 4px rgb(255, 255, 0);
+  cursor: pointer;
+}

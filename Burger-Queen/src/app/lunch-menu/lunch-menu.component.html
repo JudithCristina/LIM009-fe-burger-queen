@@ -13,8 +13,8 @@
                             <h5 class="card-title">Hamburguesas Simples</h5>
                             <p class="card-text">Precio: $10</p>
                             <div *ngFor="let itemL of hamburguesasS; let in = index">
-                                <div class="text-center p-1 mb-2 mt-3 font-weight-bold bg-warning font-black "
-                                    (click)="addItemToMenuService(itemL.id, itemL.additional1, itemL.additional2)">
+                                <div class="effectH">
+                                <div class="text-center p-1 mb-2 mt-3 font-weight-bold bg-warning font-black ">
                                     {{itemL.contentBurger}}</div>
                                 <div class="form-group ">
                                     <p>Adicional <br> (Precio: $1 c/u)</p>
@@ -28,8 +28,9 @@
                                     </div>
                                 </div>
                                 <div class="card mb-1 border-trans">
-                                <button class="btn  btn-success col align-self-end font-weight-bold font-black">Añadir</button>
+                                <button class="btn  btn-success col align-self-end font-weight-bold font-black"  (click)="addItemToMenuService(itemL.id, itemL.additional1, itemL.additional2)">Añadir</button>
                                 </div>
+                            </div>
                             </div>       
                         </div>
                     </div>
@@ -44,6 +45,7 @@
                             <h5 class="card-title">Hamburguesas Dobles</h5>
                             <p class="card-text">Precio: $15</p>
                             <div *ngFor="let itemL of hamburguesasD; let in = index">
+                                <div class="effectH">
                                 <div class="text-center p-1 mb-2 mt-3 font-weight-bold bg-warning font-black ">{{itemL.contentBurger}}</div>
                                 <div class="form-group ">
                                     <p>Adicional <br> (Precio: $1 c/u)</p>
@@ -59,6 +61,7 @@
                                 <div class="card mb-1 border-trans">
                                 <button class="btn  btn-success col align-self-end font-weight-bold font-black"  (click)="addItemToMenuService(itemL.id, itemL.additional1, itemL.additional2)">Añadir</button>
                                 </div>
+                            </div>
                             </div>    
                         </div>
                     </div>
@@ -71,8 +74,8 @@
     <div class="container">
         <div class="row">
             <div id="bebidas" class="col-6 collapse" *ngFor="let itemL of bebidas">
-                <div (click)="addItemToMenuService(itemL.id)" class="card-deck ">
-                    <div class="card">
+                <div (click)="addItemToMenuService(itemL.id)" class="card-deck">
+                    <div class="card m-2 effect">
                         <img class="card-img-top lunch-img" src="{{itemL.image}}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{itemL.name}}</h5>
@@ -89,8 +92,8 @@
     <div class="container">
         <div class="row">
             <div id="acompanamientos" class="col-6 collapse" *ngFor="let itemL of acompanamientos">
-                <div (click)="addItemToMenuService(itemL.id)" class="card-deck ">
-                    <div class="card">
+                <div (click)="addItemToMenuService(itemL.id)" class="card-deck">
+                    <div class="card effect">
                         <img class="card-img-top lunch-img" src="{{itemL.image}}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{itemL.name}}</h5>

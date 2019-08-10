@@ -1,7 +1,8 @@
 <!-- <li *ngFor= "let orderItem of ORDER">{{orderItem}}</li> -->
 
 <div clas="col-6">
-  <div class="form-group margin-top font-white">
+  <div class="row">
+  <div class="col-12 form-group margin-top font-white">
     <div *ngIf="s <= 9 && m>=10 " class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning"
       id="inputGroup-sizing-sm"> FECHA : {{ fecha | date:'dd-MM-yyyy'}} - {{h}}:{{m}}:0{{s}}</div>
     <div *ngIf="s >= 10 && m<=9 " class="text-center p-1 mb-2 font-weight-bold margin-bottom bg-warning"
@@ -17,7 +18,9 @@
       <!-- <strong>{{ buyerName }}</strong> -->
     </div>
   </div>
-
+</div>
+<div class="row">
+  <div class="col-12">
   <table class="table table-striped">
     <thead>
       <tr>
@@ -50,6 +53,8 @@
       </tr>
     </tfoot>
   </table>
+</div>
+</div>
 </div>
 <button class="btn btn-success col align-self-end font-weight-bold font-black" (click)="sendOrder()"
   [disabled]="!buyerName">Enviar orden</button>
