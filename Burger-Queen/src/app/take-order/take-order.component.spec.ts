@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TakeOrderComponent } from './take-order.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('TakeOrderComponent', () => {
   let component: TakeOrderComponent;
@@ -8,7 +9,12 @@ describe('TakeOrderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TakeOrderComponent ]
+      declarations: [ 
+        TakeOrderComponent
+      ],
+      schemas: [
+        NO_ERRORS_SCHEMA
+      ]
     })
     .compileComponents();
   }));
@@ -19,7 +25,7 @@ describe('TakeOrderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create TakeOrderComponent', () => {
     expect(component).toBeTruthy();
   });
 });

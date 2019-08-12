@@ -1,10 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
+  let titleElement: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -16,16 +19,19 @@ describe('HomeComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
+    titleElement = fixture.debugElement.query(By.css('h1'))
     fixture.detectChanges();
   });
 
-  it(`should have as title 'Burger Queen'`, () => {
-    const fixture = TestBed.createComponent(HomeComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Burger Queen');
+  it('should create HomeComponent', () => {
+    expect(component).toBeTruthy();
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it(`should have as title 'Burger Queen'`, () => {
+    expect(component.title).toEqual('Burger Queen');
+  });
+
+  it(`deberia de renderizar title en un h1 tag`, () => {
+    expect(titleElement.nativeElement.textContent).toEqual('Burger Queen');
+  });
 });

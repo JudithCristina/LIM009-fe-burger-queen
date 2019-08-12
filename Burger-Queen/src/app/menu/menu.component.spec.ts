@@ -1,27 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MenuComponent } from './menu.component';
-import { BreakfastMenuComponent } from '../breakfast-menu/breakfast-menu.component';
-import { LunchMenuComponent } from '../lunch-menu/lunch-menu.component';
-import { DataService } from '../data.service';
-import { MenuService } from '../services/menu.service';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+
 
 describe('MenuComponent', () => {
   let component: MenuComponent;
   let fixture: ComponentFixture<MenuComponent>;
-  let breakfastMenuComp: BreakfastMenuComponent;
-  let lunchMenuComp: LunchMenuComponent;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        MenuComponent,
-        BreakfastMenuComponent,
-        LunchMenuComponent ],
-      providers: [
-        DataService,
-        MenuService
+        MenuComponent
       ],
+      schemas: [
+        NO_ERRORS_SCHEMA
+      ]
     })
     .compileComponents();
   }));
@@ -32,15 +26,19 @@ describe('MenuComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create BreakfastMenuComponent', () => {
-    expect(breakfastMenuComp).toBeTruthy();
+  it('should create MenuComponent', () => {
+    expect(component).toBeTruthy();
   });
 
-  it('should create BreakfastMenuComponent', () => {
-    expect(breakfastMenuComp).toBeTruthy();
+  it('Botón desayuno debe mostrar el menú para desayuno', () => {
+    component.openBreakfastMenu();
+    fixture.detectChanges();
+    expect(component.showBreakfast).toBe(true);
   });
 
-  it('should create LunchMenuComponent', () => {
-    expect(lunchMenuComp).toBeTruthy();
+  it('Botón almuerzo debe mostrar el menú para almuerzo', () => {
+    component.openLunchMenu()
+    fixture.detectChanges();
+    expect(component.showLunch).toBe(true);
   });
 });
