@@ -17,24 +17,26 @@
       </li>
     </ul>
   </div>
-  <div class="card-body-1" *ngIf='showPending'>
-    <div class="row ml-2 mr-2 mt-2">
+  <div class=" card-body-1" *ngIf='showPending'>
+    <div class="row ml-3 mr-3 mt-3">
       <div class="col-6"  *ngFor="let itemOrder of ordersPending, let i = index" >
           <div class="card text-center mb-2 border border-warning">
               <div class="card-header text-center font-weight-bold bg-yellow">
+                  <div class="row">
+                  <div class="col-9">
                   <p>ORDEN N°: {{itemOrder.numberOrders}}  -   CLIENTE: {{itemOrder.clientName}}</p>
-                  <div class=row>
-                  <div class="col-6">
+                  </div> 
+                  <div class="col-1">
                   <img class= "img" src="../../assets/stopwatch.png" alt="">
                   </div>
-                  <div class="col-6">
-                  <p *ngIf="timers[itemOrder.id].seconds <= 9 && timers[itemOrder.id].minutes>=10 "> {{timers[itemOrder.id].hours}} : {{ timers[itemOrder.id].minutes}} : 0{{timers[itemOrder.id].seconds }}</p>
-                  <p *ngIf="timers[itemOrder.id].seconds >= 10 && timers[itemOrder.id].minutes<=9">  {{timers[itemOrder.id].hours}} : 0{{ timers[itemOrder.id].minutes}} : {{timers[itemOrder.id].seconds }}</p>
-                  <p *ngIf="timers[itemOrder.id].seconds <= 9 && timers[itemOrder.id].minutes<= 9 "> {{timers[itemOrder.id].hours}} : 0{{ timers[itemOrder.id].minutes}} : 0{{timers[itemOrder.id].seconds }}</p>
-                  <p *ngIf="timers[itemOrder.id].seconds >= 10&& timers[itemOrder.id].minutes>= 10"> {{timers[itemOrder.id].hours}} : {{ timers[itemOrder.id].minutes}} : {{timers[itemOrder.id].seconds }}</p>
+                  <div class="col-2">
+                  <p class="letter ml-3" *ngIf="timers[itemOrder.id].seconds <= 9 && timers[itemOrder.id].minutes>=10 "> {{timers[itemOrder.id].hours}}:{{ timers[itemOrder.id].minutes}}:0{{timers[itemOrder.id].seconds }}</p>
+                  <p class="letter ml-3" *ngIf="timers[itemOrder.id].seconds >= 10 && timers[itemOrder.id].minutes<=9">  {{timers[itemOrder.id].hours}}:0{{ timers[itemOrder.id].minutes}}:{{timers[itemOrder.id].seconds }}</p>
+                  <p class="letter ml-3" *ngIf="timers[itemOrder.id].seconds <= 9 && timers[itemOrder.id].minutes<= 9 "> {{timers[itemOrder.id].hours}}:0{{ timers[itemOrder.id].minutes}}:0{{timers[itemOrder.id].seconds }}</p>
+                  <p class="letter ml-3" *ngIf="timers[itemOrder.id].seconds >= 10&& timers[itemOrder.id].minutes>= 10"> {{timers[itemOrder.id].hours}}:{{ timers[itemOrder.id].minutes}}:{{timers[itemOrder.id].seconds }}</p>
                   </div>
-                  </div>
-                  </div>
+                </div>
+              </div>
               <div class="card-body">
                   <table class="table table-striped">
                       <thead>
@@ -64,9 +66,19 @@
   <div  class="card-body2" *ngIf='showReadyToServe'>
     <div class="row ml-3 mr-3 mt-3">
       <div class="col-6"  *ngFor="let itemOrder of ordersReadyToServe, let i = index" >
-          <div class="card text-center mb-3 border border-warning">
+          <div class="card text-center mb-2 border border-warning">
             <div class="card-header text-center font-weight-bold bg-yellow">
-              <p> N°: {{itemOrder.numberOrders}}  -   CLIENTE: {{itemOrder.clientName}} <br> Tiempo que demoró en cocina: {{itemOrder.timeIntervalPR.hours}}:{{itemOrder.timeIntervalPR.minutes}}:{{itemOrder.timeIntervalPR.seconds}}</p>
+                <div class="row">
+                <div class="col-9">
+                <p>ORDEN N°: {{itemOrder.numberOrders}}  -   CLIENTE: {{itemOrder.clientName}}</p>
+                </div> 
+                <div class="col-1">
+                <img class= "img" src="../../assets/intervalo.png" alt="">
+                </div>
+                <div class="col-2">
+                <p class="letter ml-2">{{itemOrder.timeIntervalPR.hours}}:{{itemOrder.timeIntervalPR.minutes}}:{{itemOrder.timeIntervalPR.seconds}}</p>
+                </div>
+              </div>
             </div>
               <div class="card-body">
                   <table class="table table-striped">
@@ -96,7 +108,7 @@
   <div  class="card-body3" *ngIf='showDelivery'>
     <div class="row ml-3 mr-3 mt-3">
       <div class="col-6"  *ngFor="let itemOrder of ordersDelivery, let i = index" >
-          <div class="card text-center mb-3 border border-warning">
+          <div class="card text-center mb-2 border border-warning">
             <div class="card-header text-center font-weight-bold bg-yellow">
               ORDEN N°: {{itemOrder.numberOrders}}  -   CLIENTE: {{itemOrder.clientName}}
             </div>

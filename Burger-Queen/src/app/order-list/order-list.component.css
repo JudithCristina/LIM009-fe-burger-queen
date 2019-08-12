@@ -42,3 +42,9 @@
     position: absolute;
     right: 0;
   }
+  .letter{
+    size: 10px;
+    color:red;
+    position: absolute;
+    left: 0;
+  }
