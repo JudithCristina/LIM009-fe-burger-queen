@@ -104,7 +104,7 @@ export class OrderListComponent implements OnInit {
     this.timers[obj.id] = {
       hours,
       minutes,
-      seconds: seconds
+      seconds
     };
   }, 1000);
   }

@@ -30,9 +30,9 @@
                    <img class= "img" src="../../assets/stopwatch.png" alt="">
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                  <p class="letter ml-3" *ngIf="timers[itemOrder.id].seconds <= 9 && timers[itemOrder.id].minutes>=10 "> {{timers[itemOrder.id].hours}}:{{ timers[itemOrder.id].minutes}}:0{{timers[itemOrder.id].seconds }}</p>
+                  <p class="letter ml-3" *ngIf="timers[itemOrder.id].seconds <= 9 && timers[itemOrder.id].minutes>=10"> {{timers[itemOrder.id].hours}}:{{ timers[itemOrder.id].minutes}}:0{{timers[itemOrder.id].seconds }}</p>
                   <p class="letter ml-3" *ngIf="timers[itemOrder.id].seconds >= 10 && timers[itemOrder.id].minutes<=9">  {{timers[itemOrder.id].hours}}:0{{ timers[itemOrder.id].minutes}}:{{timers[itemOrder.id].seconds }}</p>
-                  <p class="letter ml-3" *ngIf="timers[itemOrder.id].seconds <= 9 && timers[itemOrder.id].minutes<= 9 "> {{timers[itemOrder.id].hours}}:0{{ timers[itemOrder.id].minutes}}:0{{timers[itemOrder.id].seconds }}</p>
+                  <p class="letter ml-3" *ngIf="timers[itemOrder.id].seconds <= 9 && timers[itemOrder.id].minutes<= 9"> {{timers[itemOrder.id].hours}}:0{{ timers[itemOrder.id].minutes}}:0{{timers[itemOrder.id].seconds }}</p>
                   <p class="letter ml-3" *ngIf="timers[itemOrder.id].seconds >= 10&& timers[itemOrder.id].minutes>= 10"> {{timers[itemOrder.id].hours}}:{{ timers[itemOrder.id].minutes}}:{{timers[itemOrder.id].seconds }}</p>
                   </div>
                 </div>
