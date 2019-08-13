@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-6" *ngFor="let itemBreakfast of itemsBreakfastMenu">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" *ngFor="let itemBreakfast of itemsBreakfastMenu">
       <div (click)="addItemToMenuService(itemBreakfast.id)"  class="card-deck">
-        <div class="card m-2 effect">
-          <img class="card-img-top breakfast-img" src="{{itemBreakfast.image}}" alt="Card image cap">
+        <div class="card m-2 effect pointer">
+          <img class="card-img-top breakfast-img pointer" src="{{itemBreakfast.image}}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{itemBreakfast.name}}</h5>
             <p class="card-text">Precio: {{itemBreakfast.price | currency}}</p>

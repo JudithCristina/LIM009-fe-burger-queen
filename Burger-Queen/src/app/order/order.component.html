@@ -26,20 +26,20 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Producto</th>
-        <th scope="col">Cantidad</th>
-        <th scope="col">Precio Unitario</th>
+        <th scope="col">Cant.</th>
+        <th scope="col">P. unit.</th>
         <th scope="col">Subtotal</th>
         <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let itemOrder of finalOrder, let i = index">
-        <th scope="row">{{i+1}}</th>
+        <th>{{i+1}}</th>
         <td>{{itemOrder.name}} {{itemOrder.additional1}} {{itemOrder.additional2}}</td>
         <td> <input type="number" style="max-width:50px" [ngModel]="itemOrder.quantity" min=1 max=100 #newQuantity
             (click)="addNewQuantity(i, newQuantity.value)"></td>
-        <td>{{itemOrder.price}}</td>
-        <td>{{itemOrder.priceTotal}}</td>
+        <td>{{itemOrder.price| currency}}</td>
+        <td>{{itemOrder.priceTotal| currency}}</td>
         <td><img (click)="eliminar(i)" class="delete-btn" src='../../assets/delete-btn.png' /></td>
       </tr>
     </tbody>

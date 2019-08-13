@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light">
     <img routerLink='' class="out" src="../../assets/out.png" alt="">
-    <img class="logo" src="../../assets/logoBurgerQueen.png" />
+    <img class="logo" src="../../assets/Logo-Burger-Queen-Blanco.png" />
 
 </nav>
 <div class="card text-center">
@@ -19,17 +19,17 @@
   </div>
   <div class=" card-body-1" *ngIf='showPending'>
     <div class="row ml-3 mr-3 mt-3">
-      <div class="col-6"  *ngFor="let itemOrder of ordersPending, let i = index" >
+      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12"  *ngFor="let itemOrder of ordersPending, let i = index" >
           <div class="card text-center mb-2 border border-warning">
               <div class="card-header text-center font-weight-bold bg-yellow">
-                  <div class="row">
-                  <div class="col-9">
-                  <p>ORDEN N°: {{itemOrder.numberOrders}}  -   CLIENTE: {{itemOrder.clientName}}</p>
+                <div class="row">
+                  <div class="col-lg-9 col-md-9 col-sm-7 col-xs-7">
+                    <p class="font-size2">ORDEN N°: {{itemOrder.numberOrders}}  -   CLIENTE: {{itemOrder.clientName}}</p>
                   </div> 
-                  <div class="col-1">
-                  <img class= "img" src="../../assets/stopwatch.png" alt="">
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                   <img class= "img" src="../../assets/stopwatch.png" alt="">
                   </div>
-                  <div class="col-2">
+                  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                   <p class="letter ml-3" *ngIf="timers[itemOrder.id].seconds <= 9 && timers[itemOrder.id].minutes>=10 "> {{timers[itemOrder.id].hours}}:{{ timers[itemOrder.id].minutes}}:0{{timers[itemOrder.id].seconds }}</p>
                   <p class="letter ml-3" *ngIf="timers[itemOrder.id].seconds >= 10 && timers[itemOrder.id].minutes<=9">  {{timers[itemOrder.id].hours}}:0{{ timers[itemOrder.id].minutes}}:{{timers[itemOrder.id].seconds }}</p>
                   <p class="letter ml-3" *ngIf="timers[itemOrder.id].seconds <= 9 && timers[itemOrder.id].minutes<= 9 "> {{timers[itemOrder.id].hours}}:0{{ timers[itemOrder.id].minutes}}:0{{timers[itemOrder.id].seconds }}</p>
@@ -56,7 +56,7 @@
                     </table>
               </div>
               <div class="card-footer">
-                <button   class="btn btn-success col align-self-end font-weight-bold font-white" (click)="sendStatusReadyToServer(itemOrder)"><strong>Listo para servir</strong></button>
+                <button   class="btn btn-success col align-self-end font-weight-bold font-white font-size" (click)="sendStatusReadyToServer(itemOrder)"><strong>SERVIR</strong></button>
               </div>
             </div>
       </div>
@@ -65,7 +65,7 @@
   </div>
   <div  class="card-body2" *ngIf='showReadyToServe'>
     <div class="row ml-3 mr-3 mt-3">
-      <div class="col-6"  *ngFor="let itemOrder of ordersReadyToServe, let i = index" >
+      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12"  *ngFor="let itemOrder of ordersReadyToServe, let i = index" >
           <div class="card text-center mb-2 border border-warning">
             <div class="card-header text-center font-weight-bold bg-yellow">
                 <div class="row">
@@ -99,7 +99,7 @@
                     </table>
               </div>
               <div class="card-footer">
-                <button   class="btn btn-success col align-self-end font-weight-bold font-white" (click)="sendStatusDelivery(itemOrder.id)"><strong>Entregado</strong></button>
+                <button   class="btn btn-success col align-self-end font-weight-bold font-white font-size" (click)="sendStatusDelivery(itemOrder.id)"><strong>ENTREGADO</strong></button>
               </div>
             </div>
       </div>
@@ -107,7 +107,7 @@
   </div>
   <div  class="card-body3" *ngIf='showDelivery'>
     <div class="row ml-3 mr-3 mt-3">
-      <div class="col-6"  *ngFor="let itemOrder of ordersDelivery, let i = index" >
+      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12"  *ngFor="let itemOrder of ordersDelivery, let i = index" >
           <div class="card text-center mb-2 border border-warning">
             <div class="card-header text-center font-weight-bold bg-yellow">
               ORDEN N°: {{itemOrder.numberOrders}}  -   CLIENTE: {{itemOrder.clientName}}

@@ -1,11 +1,13 @@
-
-.logo{
-  width: 30%;
-  height: 20%;
+    
+.logo {
+  width: 35%;
+  height: 35%;
   display:block;
   margin:auto;
+  padding-top: 18%;
+  padding-bottom: 4%;
 }
-.content{
+.content {
   position: relative
 }
 .btn-home-container {
@@ -15,24 +17,133 @@
   justify-content: space-evenly;
   
 }
-.btn{
-  color: white;
+.btn {
+  color: black;
   font-size: 24px;
   width: 200px;
   height: 60px;
 }
 
-.home-container{
-    background-image: url(../../assets/fondoHome.jpg);
-    background-repeat: no-repeat;
+.padding-btn {
+  padding-bottom: 5%;
+}
+
+.home-container {
+  background-image: url(../../assets/Fondo-Home.jpg);
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-position: center center;
+  background-position: center center; 
 }
-.overlay-itro{
+.overlay-itro {
   background-color: rgba(0, 0, 0, 0.527);
   position: absolute;
   height: 100%;
   width: 100%;
 }
 
+@media  screen 
+  and (min-width: 768px) 
+  and (max-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) and  (orientation:portrait) {
+    .home-container{
+      background-image: url(../../assets/Fondo-Home-Vertical.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center center;
+  }
+
+  .overlay-itro {
+    background-color: rgba(0, 0, 0, 0.527);
+    position: absolute;
+  }
+  .logo {
+    width: 60%;
+    height: 60%;
+    display:block;
+    margin:auto;
+    padding-top: 52%;
+    padding-bottom:20%;
+  }
+  .padding-btn {
+    padding-bottom: 23%;
+  }
+  
+}
+
+@media  screen 
+  and (min-width: 768px) 
+  and (max-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) and  (orientation:landscape) {
+    .home-container{
+      background-image: url(../../assets/fondo-horizontal.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center center;
+  }
+
+  .overlay-itro {
+    background-color: rgba(0, 0, 0, 0.527);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+  .logo {
+    width: 50%;
+    height: 50%;
+    display:block;
+    margin:auto;
+    padding-top: 28%;
+    padding-bottom:8%;
+  }
+  .padding-btn {
+    padding-bottom: 8%;
+  }
+}
+  
+@media  screen 
+and (max-width: 767px) 
+and (-webkit-min-device-pixel-ratio: 1) and  (orientation:portrait) {
+  .home-container{
+    background-image: url(../../assets/Fondo-Home-Vertical.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+}
+
+.overlay-itro {
+  background-color: rgba(0, 0, 0, 0.527);
+  position: absolute;
+}
+.logo {
+  width: 70%;
+  height: 70%;
+  display:block;
+  margin:auto;
+  padding-top: 80%;
+  padding-bottom:20%;
+}
+.padding-btn {
+  padding-bottom: 30%;
+}
+.btn {
+  color: black;
+  font-size: 18px;
+  width: 100px;
+  height: 40px;
+}
+
+}
+
+@media  screen  
+  and (max-width: 767px) 
+  and (-webkit-min-device-pixel-ratio: 1) and  (orientation:landscape) {
+  .padding-btn {
+    padding-bottom: 6%;
+  }
+  
+}
+  

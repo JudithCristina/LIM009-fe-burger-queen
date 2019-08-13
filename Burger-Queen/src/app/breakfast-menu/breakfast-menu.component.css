@@ -1,13 +1,10 @@
-.breakfast-img {
-  height: 150px;
-  cursor: pointer;
-}
-
-.card {
-  cursor: pointer;
-}
-
+    
 .effect:hover{
-  border: solid 4px #fee405;
+  border: solid 1px #fee405;
   cursor: pointer;
 }
+
+.pointer {
+  cursor: pointer;
+}
+

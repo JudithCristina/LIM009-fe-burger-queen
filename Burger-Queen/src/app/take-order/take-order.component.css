@@ -25,3 +25,35 @@ footer {
 .letter-color{
   color: red
 }
+@media  screen 
+  and (max-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) and  (orientation:portrait) {
+  .margin{
+    margin: 15px
+  }
+  
+}
+
+@media  screen 
+  and (max-width: 767px) 
+  and (-webkit-min-device-pixel-ratio: 1) and  (orientation:portrait) {
+  
+    .logo{
+      display:block;
+    margin:auto;
+      padding: 0;
+      height: 30px;
+      width: 80px;
+    }
+    
+    .out{
+      height: 25px;
+      width: 25px;
+    
+    }
+    .size-btn{
+      width: 90px;
+      font-size: 10px
+    }
+}
+

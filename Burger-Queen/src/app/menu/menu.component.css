@@ -4,5 +4,24 @@
 .card-body
   {
     height: 400px;
+    overflow-y: scroll;
+  }
+
+  
+@media  screen 
+and (min-width: 768px) 
+and (max-width: 1024px) 
+and (-webkit-min-device-pixel-ratio: 1) and  (orientation:landscape) {
+  
+  .nav-item {
+    cursor: pointer;
+  }
+
+  .card-body
+  {
+    height: 500px;
     overflow: scroll;
   }
+
+  
+}

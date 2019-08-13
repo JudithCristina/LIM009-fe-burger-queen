@@ -110,7 +110,7 @@ describe('LunchMenuComponent', () => {
   });
 
   it('Debería asignar un valor a component.productAdded al ejecutar addItemToMenuService', () => {
-    component.addItemToMenuService('1', '' );
+    component.addItemToMenuService('1', false );
     fixture.detectChanges();
     expect(component.productAdded).toEqual({id: '1', name: 'CheeseBurger', typeOfBurger: '', additional: '', price: 10, quantity: 1, priceTotal: 10})
   });

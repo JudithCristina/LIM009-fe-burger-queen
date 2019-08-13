@@ -48,3 +48,44 @@
     position: absolute;
     left: 0;
   }
+
+  @media  screen 
+  and (max-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) and  (orientation:landscape) {
+    .font-size{
+    font-size: 22px
+}
+}
+
+@media  screen 
+  and (max-width: 767px) 
+  and (-webkit-min-device-pixel-ratio: 1) and  (orientation:portrait) {
+    .font-size2{
+      font-size: 12px
+    }
+
+    .img{
+      width: 20px;
+      height: 20px;
+    }
+
+    .letter{
+      size: 10px;
+      color:red;
+      position: absolute;
+      left: 0;
+    }
+    .logo{
+      display:block;
+    margin:auto;
+      padding: 0;
+      height: 40px;
+      width: 100px;
+    }
+    
+    .out{
+      height: 35px;
+      width: 35px;
+    
+    }
+}
